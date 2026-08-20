@@ -71,8 +71,13 @@ PROIBIDAS = [
      r'|di[áa]rio de obra[^.\n]{0,80}(whatsapp|[áa]udio)|(whatsapp|[áa]udio)[^.\n]{0,80}di[áa]rio de obra'),
     ('app de campo ou PWA do mestre de obras',
      r'(app|aplicativo|pwa)[^.\n]{0,40}(de campo|do mestre de obras|do empreiteiro)'),
+    # ⚠️ O `(?!\bn[ãa]o\b)` no meio NÃO é decoração. O escape por NEGADORES só olha o que
+    # vem ANTES do match, e aqui o match começa em "cotação" — então a copy correta do
+    # capítulo de honestidade ("A cotação NÃO dispara o e-mail") tinha o negador DENTRO
+    # do trecho casado e era reprovada. Guard que reprova o texto honesto é guard que
+    # todo mundo aprende a ignorar.
     ('cotação que ENVIA e-mail ao fornecedor',
-     r'(cota[çc][ãa]o|or[çc]amento)[^.\n]{0,60}(sistema envia|envia o e-?mail|envia e-?mail|dispara o e-?mail)'),
+     r'(cota[çc][ãa]o|or[çc]amento)((?!\bn[ãa]o\b)[^.\n]){0,60}(sistema envia|envia o e-?mail|envia e-?mail|dispara o e-?mail)'),
     # LADO ÚNICO: a retenção de INSS e a geração/transmissão do R-2010 são REAIS e
     # podem ser ditas. O que não existe é o status fiscal filtrado POR OBRA na tela.
     ('status de EFD-Reinf por obra',
