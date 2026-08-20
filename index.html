@@ -88,6 +88,30 @@ p{font-size:17px;letter-spacing:-.022em;margin:0 0 1em}
 
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 section{padding:var(--respiro) 0}
+/* Sem isto, clicar numa âncora do nav cola o título embaixo da barra fixa. */
+section[id]{scroll-margin-top:64px}
+
+/* ---------- NAV DE VIDRO (mesma gramática das irmãs) ---------- */
+.nav{
+  position:sticky;top:0;z-index:100;height:52px;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:52px;max-width:var(--max);margin:0 auto;padding:0 24px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:17px;letter-spacing:-.02em;text-decoration:none}
+.brand img{width:24px;height:24px;border-radius:6px;flex-shrink:0}
+.brand .tld{color:var(--terra)}
+.nav-r{display:flex;align-items:center;gap:22px}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:13px;color:var(--tinta);opacity:.85;text-decoration:none;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--terra)}
+.nav-cta{background:var(--terra);color:#fff;padding:6px 14px;border-radius:980px;font-size:13px;font-weight:500;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:#92400E}
+/* Abaixo de 760px o menu do meio sai e sobram marca + CTA — é o que cabe sem virar
+   hambúrguer, e hambúrguer para 4 links é peso de JS por nada. */
+@media (max-width:760px){ .nav-links{display:none} }
 .nevoa{background:var(--nevoa)}
 .escuro{background:var(--preto);color:var(--claro)}
 .escuro .lead,.escuro .sub{color:var(--claro-2)}
@@ -151,6 +175,12 @@ section{padding:var(--respiro) 0}
 .marco:last-child{border-bottom:0}
 .marco b{font-weight:500;font-size:16px}
 
+.setores{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:48px}
+.setores figure{margin:0}
+.setores img{width:100%;border-radius:20px;aspect-ratio:4/3;object-fit:cover}
+.setores b{display:block;margin:16px 0 4px;font-size:19px;font-weight:600;letter-spacing:-.01em}
+.setores span{font-size:15px;color:var(--tinta-2);letter-spacing:-.01em}
+
 .preco{font-size:clamp(44px,6vw,64px);font-weight:600;letter-spacing:-.015em;line-height:1}
 .preco small{font-size:19px;font-weight:400;color:var(--tinta-2);letter-spacing:-.01em}
 .escuro .preco small{color:var(--claro-2)}
@@ -196,7 +226,26 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
      O guard `.github/scripts/seo.py` reprova o push que escrever qualquer uma.
      ═══════════════════════════════════════════════════════════════════════════ -->
 
-<section class="hero">
+<nav class="nav" aria-label="Navegação principal">
+  <div class="nav-in">
+    <a class="brand" href="#topo">
+      <img src="/assets/brand-mark.png" width="24" height="24" alt="" />
+      <span>acompanhaobra<span class="tld">.app</span></span>
+    </a>
+    <span class="nav-r">
+      <span class="nav-links">
+        <a href="#obra">Do condomínio</a>
+        <a href="#unidade">Da unidade</a>
+        <a href="#preco">Preço</a>
+        <a href="#limites">O que não faz</a>
+      </span>
+      <a class="nav-cta" href="https://wa.me/5562985673142?text=Vim%20pelo%20menu%20do%20site%20do%20acompanhaobra">Falar no WhatsApp</a>
+    </span>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="topo">
   <div class="wrap rev">
     <span class="olho">Obras e reformas de condomínio</span>
     <h1>A obra deixa de morar no WhatsApp.</h1>
@@ -320,6 +369,24 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
   </div>
 </section>
 
+<section id="quem">
+  <div class="wrap rev">
+    <span class="olho">Para quem é</span>
+    <h2>Se o prédio tem obra, serve.</h2>
+    <p class="lead">Do retrofit de fachada à reforma de um apartamento só — e, para a administradora, tudo isso vezes o número de prédios.</p>
+    <div class="setores">
+      <figure><img src="/assets/setor-fachada.jpg" alt="Fachada de prédio residencial com andaime montado e operário aplicando revestimento." width="800" height="600" loading="lazy" decoding="async" />
+        <b>Prédio residencial</b><span>Fachada, telhado, elevador e garagem — obra grande, dinheiro do rateio e assembleia cobrando.</span></figure>
+      <figure><img src="/assets/setor-reforma.jpg" alt="Pedreiro assentando revestimento em parede de apartamento em reforma." width="800" height="600" loading="lazy" decoding="async" />
+        <b>Reforma de unidade</b><span>O morador quebra parede sem avisar, e a norma põe a responsabilidade no colo do síndico.</span></figure>
+      <figure><img src="/assets/setor-loteamento.jpg" alt="Casa em construção em condomínio horizontal, com estrutura de alvenaria erguida." width="800" height="600" loading="lazy" decoding="async" />
+        <b>Loteamento</b><span>Casa erguida do zero no lote vazio, com regra de obra para fazer valer e vizinho reclamando.</span></figure>
+      <figure><img src="/assets/setor-carteira.jpg" alt="Engenheira de capacete conversando com o síndico no hall de entrada do prédio." width="800" height="600" loading="lazy" decoding="async" />
+        <b>Administradora</b><span>Dezenas de obras espalhadas por vários prédios, cada uma num grupo de WhatsApp diferente.</span></figure>
+    </div>
+  </div>
+</section>
+
 <section id="preco">
   <div class="wrap rev">
     <span class="olho">Preço</span>
@@ -329,6 +396,23 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     <div class="acoes">
       <a class="btn" href="https://wa.me/5562985673142?text=Quero%20come%C3%A7ar%20com%20uma%20obra%20no%20acompanhaobra">Começar pela primeira obra</a>
       <a class="btn btn-ghost" href="/livreto/">Ver o livreto</a>
+    </div>
+  </div>
+</section>
+
+<!-- Capítulo de honestidade. O playbook das irmãs chama o equivalente de "o mais
+     importante": um material que só lista virtude não ajuda ninguém a decidir. Quem lê só
+     a home precisa sair sabendo destes três limites — todos verificados no ROADMAP do
+     módulo, e todos protegidos por regra no `.github/scripts/seo.py`. -->
+<section id="limites" class="escuro">
+  <div class="wrap rev">
+    <span class="olho">Honestidade</span>
+    <h2>O que o acompanhaobra não faz.</h2>
+    <p class="lead">Melhor você descobrir agora do que depois de assinar.</p>
+    <div class="grade">
+      <div class="card"><h3>O diário não entra por WhatsApp</h3><p>O relatório diário é preenchido na tela do sistema, com as fotos e os vídeos anexados. Não existe o encarregado mandando áudio e a IA transcrevendo — isso é roadmap, e roadmap não se vende como pronto.</p></div>
+      <div class="card"><h3>Não há aplicativo de campo</h3><p>O engenheiro, o empreiteiro e o mestre entram pelo navegador, por link de convite. Não há app para eles instalarem.</p></div>
+      <div class="card"><h3>Não é orçamento de engenharia</h3><p>Não há composição de custo unitário nem tabela de referência de preço. O sistema controla o que foi cotado, contratado, medido e pago — não monta o orçamento da obra para você.</p></div>
     </div>
   </div>
 </section>
@@ -360,6 +444,18 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
       <p>Não. O acompanhaobra é o módulo de obras do Seu Condomínio, e pode ser contratado por quem já usa o sistema ou por quem só quer a parte de obras. O empreiteiro é o mesmo cadastro de fornecedor do financeiro, então não há planilha paralela.</p></details>
   </div>
 </section>
+
+<section id="falar">
+  <div class="wrap rev" style="text-align:center">
+    <h2>Vamos abrir a sua próxima obra no sistema.</h2>
+    <p class="lead" style="margin:0 auto 4px">A primeira obra é grátis, do cadastro ao termo de conclusão. Conte qual é a obra do seu prédio e a gente mostra rodando.</p>
+    <div class="acoes" style="justify-content:center">
+      <a class="btn" href="https://wa.me/5562985673142?text=Quero%20abrir%20a%20pr%C3%B3xima%20obra%20do%20meu%20pr%C3%A9dio%20no%20acompanhaobra">Falar no WhatsApp</a>
+      <a class="btn btn-ghost" href="/livreto/">Ver o livreto</a>
+    </div>
+  </div>
+</section>
+</main>
 
 <footer class="ft">
   <div class="wrap">
