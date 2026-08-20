@@ -21,9 +21,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.json" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+<!-- Sem Google Fonts — ver a nota no index.html. Numa página de privacidade a razão pesa
+     dobrado: carregar fonte de terceiro entrega o IP do visitante justamente aqui. -->
 <style>
   :root{
     --branco:#fff; --nevoa:#f5f5f7;
@@ -65,6 +64,9 @@
 
   <p class="destaque">O acompanhaobra é o módulo de obras do Seu Condomínio. Quem controla os dados de cada obra é o condomínio ou a administradora que contrata o serviço; nós os tratamos em nome dele, na condição de operador, para prestar o serviço contratado.</p>
 
+  <h2>Quem é responsável pelos seus dados</h2>
+  <p>O acompanhaobra é contratado por condomínios e administradoras para controlar a obra do prédio e a reforma das unidades. Nesse arranjo, o <strong>condomínio ou a administradora é o controlador</strong> — é quem decide por que e como os dados são tratados — e o acompanhaobra atua como <strong>operador</strong>, tratando os dados em nome dele para viabilizar o serviço. Dúvidas sobre a finalidade do tratamento no seu prédio devem ser encaminhadas ao síndico ou à administradora. Sobre o funcionamento do sistema em si, fale com a gente (seção <a href="#contato">Contato</a>).</p>
+
   <h2>Que dados são tratados</h2>
   <ul>
     <li><strong>Cadastro de quem usa o sistema:</strong> nome, e-mail, telefone e o papel na obra (síndico, morador, engenheiro, empreiteiro, mestre de obras, fiscal).</li>
@@ -76,6 +78,23 @@
 
   <h2>Para que são usados</h2>
   <p>Exclusivamente para operar o serviço: controlar o andamento da obra, submeter a reforma de unidade ao rito da NBR 16280, registrar aprovações e assinaturas, executar os pagamentos ao fornecedor com as retenções devidas e gerar as obrigações acessórias correspondentes. Não vendemos dados e não os usamos para publicidade de terceiros.</p>
+
+  <h2>Base legal</h2>
+  <p>O tratamento se apoia em três hipóteses da Lei Geral de Proteção de Dados, conforme o dado:</p>
+  <ul>
+    <li><strong>Execução de contrato</strong> — o cadastro de quem usa o sistema, os dados da obra, as etapas e os documentos anexados existem para entregar o serviço contratado pelo condomínio.</li>
+    <li><strong>Cumprimento de obrigação legal</strong> — os dados que embasam a retenção de INSS, o evento da EFD-Reinf e o CNO são tratados porque a legislação fiscal exige, e por isso não podem ser simplesmente apagados a pedido enquanto o prazo legal correr.</li>
+    <li><strong>Legítimo interesse</strong> — o registro de quem enviou cada documento, foto e diário, que é o que dá rastreabilidade à obra e protege tanto o síndico quanto o morador.</li>
+  </ul>
+
+  <h2>Com quem compartilhamos</h2>
+  <p>Não vendemos dados e não os cedemos para publicidade. Há compartilhamento apenas com quem é necessário para o serviço funcionar:</p>
+  <ul>
+    <li><strong>Provedor de nuvem</strong> — armazenamento dos dados e dos arquivos anexados à obra.</li>
+    <li><strong>Provedor de modelo de linguagem</strong> — apenas os documentos técnicos enviados para a leitura automática descrita abaixo.</li>
+    <li><strong>Serviço de assinatura eletrônica</strong> — nome, e-mail e o documento a assinar, quando o termo ou o aditivo é enviado para assinatura.</li>
+    <li><strong>Autoridades públicas</strong> — quando a obrigação fiscal exige (a transmissão da EFD-Reinf, por exemplo) ou mediante determinação legal.</li>
+  </ul>
 
   <h2>Quem enxerga o quê</h2>
   <p>O acesso é escopado por papel. O morador vê as obras do condomínio e as da unidade dele; a reforma de outra unidade aparece sem descrição e sem valor. A equipe externa convidada para uma obra enxerga apenas aquela obra — não o financeiro do condomínio, não o cadastro dos moradores, não as outras obras. O acesso é revogável a qualquer momento pelo síndico, encerra-se automaticamente quando a obra é concluída, e o convite não utilizado expira em trinta dias.</p>
@@ -94,6 +113,18 @@
 
   <h2>Segurança</h2>
   <p>O acesso exige autenticação individual, o tráfego é cifrado em trânsito e cada ação relevante fica registrada com autor e data. Documentos e mídias ficam em armazenamento privado, acessível apenas por quem tem permissão naquela obra.</p>
+
+  <h2>Visitantes deste site</h2>
+  <p>Esta seção é sobre <strong>quem apenas navega em acompanhaobra.app</strong>, e não sobre quem usa o sistema.</p>
+  <ul>
+    <li><strong>Não há analytics, cookie de rastreamento nem pixel de anúncio.</strong> O site não instala nada no seu navegador para medir sua visita.</li>
+    <li><strong>Não há fonte, script ou imagem de terceiro.</strong> Todo o conteúdo é servido do próprio domínio — nenhum outro servidor recebe o seu IP por causa desta página.</li>
+    <li><strong>Hospedagem</strong> — as páginas são servidas pelo GitHub Pages, que, como qualquer servidor web, processa o endereço IP da requisição para entregar o conteúdo.</li>
+    <li><strong>Clicar no botão de WhatsApp</strong> abre uma conversa com a gente. A partir daí, o que você escrever fica registrado no nosso atendimento — inclusive a mensagem que já vem preenchida, que nos diz de qual página você veio.</li>
+  </ul>
+
+  <h2 id="contato">Contato</h2>
+  <p>Dúvidas sobre esta política ou sobre o tratamento dos seus dados no acompanhaobra: <a href="https://wa.me/5562985673142?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20privacidade%20no%20acompanhaobra.">fale com a gente no WhatsApp</a>. Se você é morador ou funcionário de um condomínio que usa o sistema, o pedido também pode ser feito diretamente ao síndico ou à administradora, que é o controlador dos dados.</p>
 
   <h2>Alterações</h2>
   <p>Se esta política mudar, a data de vigência no topo muda junto. Alterações relevantes são comunicadas ao condomínio contratante.</p>

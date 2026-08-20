@@ -30,9 +30,13 @@
 <meta name="twitter:description" content="Controle de obra de condomínio e reforma de apartamento pela NBR 16280. Cotação, medição, aditivo e termo assinado no mesmo lugar." />
 <meta name="twitter:image" content="https://www.acompanhaobra.app/assets/og.jpg" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+<!-- ⚠️ Sem Google Fonts de propósito. A stack de fonte começa em `-apple-system` e
+     `BlinkMacSystemFont`, que resolvem para a fonte do sistema ANTES de chegar em 'Inter'
+     em tudo que não é Apple — ou seja, o CSS de terceiro era render-blocking no caminho
+     crítico para uma fonte que quase nunca era usada. De quebra, carregá-lo entregava o IP
+     de cada visitante a um terceiro, o que a política de privacidade teria de declarar.
+     Se um dia quiser Inter de verdade, hospede o .woff2 aqui e use @font-face local. -->
+<link rel="preload" as="image" href="/assets/hero.jpg" fetchpriority="high" />
 
 <style>
 /* =========================================================================
@@ -114,9 +118,11 @@ section{padding:var(--respiro) 0}
 .escuro .card{background:#161519}
 .card p{color:var(--tinta-2);margin:0}
 .escuro .card p{color:var(--claro-2)}
+/* ⚠️ A cor aqui é `--terra-esc`, não `--terra`: em 11px sobre o fundo âmbar claro o
+   `#B45309` dá ~4,1:1, abaixo do mínimo AA de 4,5:1. O `#92400E` sobe para ~5,6:1. */
 .selo{
   display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;
-  background:rgba(180,83,9,.12);color:var(--terra);border-radius:980px;padding:3px 9px;margin-left:8px;vertical-align:2px;
+  background:rgba(180,83,9,.12);color:#92400E;border-radius:980px;padding:3px 9px;margin-left:8px;vertical-align:2px;
 }
 
 /* movimento: sobe 30px, 900ms, uma vez só */
@@ -135,7 +141,8 @@ section{padding:var(--respiro) 0}
   background:#111014;border-radius:28px;padding:28px;color:var(--claro);
   font-variant-numeric:tabular-nums;
 }
-.painel h3{color:var(--claro);font-size:15px;letter-spacing:.02em;color:var(--claro-2);font-weight:500}
+.painel h3{color:var(--claro-2);font-size:15px;letter-spacing:.02em;font-weight:500}
+.painel figcaption{margin-top:18px;font-size:13px;color:var(--claro-2);letter-spacing:0}
 .barra{height:10px;border-radius:980px;background:rgba(255,255,255,.12);overflow:hidden;margin:8px 0 4px}
 .barra i{display:block;height:100%;border-radius:980px;background:var(--terra-clara)}
 .barra.prev i{background:rgba(255,255,255,.34)}
@@ -200,7 +207,7 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     </div>
   </div>
   <div class="heroimg rev">
-    <img src="/assets/hero.jpg" alt="Operários em andaime na reforma da fachada de um prédio, com o síndico observando do chão." width="1600" height="900" fetchpriority="high" />
+    <img src="/assets/hero.jpg" alt="Operários em andaime na reforma da fachada de um prédio, com o síndico observando do chão." width="1600" height="900" fetchpriority="high" decoding="async" />
   </div>
 </section>
 
@@ -283,7 +290,8 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     <!-- Peça viva da página: é a tela do painel em HTML/CSS, não uma imagem.
          Doutrina do foundry: foto = gerador de imagem, INTERFACE = HTML/CSS —
          o gerador aluciona texto e borra a tipografia. -->
-    <div class="painel rev" style="margin-top:48px">
+    <figure class="painel rev" style="margin-top:48px" role="img"
+            aria-label="Exemplo ilustrativo do painel de uma obra: previsto 72 por cento contra realizado 58 por cento, com três marcos.">
       <h3>Reforma da fachada · Bloco A</h3>
       <div style="margin:18px 0 26px">
         <div class="legenda"><span>Previsto</span><span>72%</span></div>
@@ -295,10 +303,14 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
       <div class="marco"><b>Demolição e proteção</b><div class="legenda"><span>concluído em 12/03</span><span>100%</span></div></div>
       <div class="marco"><b>Recuperação estrutural</b><div class="legenda"><span>previsto para 30/06</span><span>85%</span></div></div>
       <div class="marco"><b>Pintura e acabamento</b><div class="legenda"><span>previsto para 15/08 · não iniciado</span><span>0%</span></div></div>
-    </div>
+      <!-- ⚠️ Rótulo obrigatório. Sem ele, "Reforma da fachada · Bloco A / R$ 148.000 de
+           R$ 255.000" lê como obra real de cliente — e a casa inteira é construída sobre a
+           regra de não fabricar prova social. Vale para o leitor de tela também. -->
+      <figcaption>Exemplo ilustrativo — os números não são de um condomínio real.</figcaption>
+    </figure>
 
     <div class="grade">
-      <div class="card"><h3>Sete cards de operação</h3><p>Aprovação parada, aditivo sem assinatura, cotação sem resposta, pagamento vencendo, marco atrasando, início atrasado. Cada card filtra a lista.</p></div>
+      <div class="card"><h3>Sete cards de operação</h3><p>Obra em andamento com o valor total, aprovação parada, aditivo sem assinatura, cotação sem resposta, pagamento vencendo, marco atrasando e início atrasado. Cada card filtra a lista.</p></div>
       <div class="card"><h3>O alerta antes da cobrança</h3><p>Marco vencido e obra que não começou viram aviso para quem pode agir — no aplicativo, por e-mail ou no WhatsApp, como você escolher.</p></div>
       <div class="card"><h3>Relatório em um clique</h3><p>O PDF da obra com a logo do condomínio, pronto para a assembleia: resumo, orçamento, marcos, pagamentos, aditivos e diários.</p></div>
       <div class="card"><h3>Tudo em um feed só</h3><p>Diário, foto e vídeo em ordem cronológica, com autor e data. O vídeo toca na própria página, sem baixar nada.</p></div>
@@ -354,7 +366,9 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     <a class="marca" href="/">acompanhaobra<span style="color:var(--claro-2)">.app</span></a>
     <p style="margin:0;max-width:52ch">O controle de obra do condomínio e da reforma de unidade, do Seu Condomínio.</p>
     <div class="links">
-      <a href="https://wa.me/5562985673142">WhatsApp</a>
+      <!-- Prefill próprio no rodapé: o texto é o único sinal de origem que atravessa o
+           WhatsApp (querystring não é repassada), e chega no ERP como a primeira mensagem. -->
+      <a href="https://wa.me/5562985673142?text=Vim%20pelo%20rodap%C3%A9%20do%20site%20do%20acompanhaobra">WhatsApp</a>
       <a href="https://blog.acompanhaobra.app/">Blog</a>
       <a href="https://blog.acompanhaobra.app/rss">RSS</a>
       <a href="/livreto/">Livreto</a>
