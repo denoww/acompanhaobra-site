@@ -1,0 +1,144 @@
+# Guarda de contato: o número de WhatsApp não pode divergir entre as páginas.
+#
+# POR QUE ISTO EXISTE
+# O número aparece em ~7 links `wa.me` só no index.html, mais o livreto. Já foi trocado
+# à mão uma vez; da próxima, esquecer UM link significa um lead ligando para um número
+# que não é nosso — e ninguém descobre, porque nada quebra. A página continua bonita.
+#
+# COMO FUNCIONA
+# `.whatsapp` na raiz é a FONTE DA VERDADE (dotfile: o GitHub Pages não publica arquivos
+# que começam com ponto — conferido, `/livreto/.espelho.sha` responde 404). O livreto já
+# deriva dele em `livreto/content.py`. O HTML segue literal (front matter na home mataria
+# a doutrina `diff <(curl -s .../index.html) index.html`, que é a rede de segurança do
+# playbook), e é ESTE job que garante que o literal nunca divirja.
+#
+# O QUE NÃO É CONFERIDO, E POR QUÊ
+# `livreto/index.html` é GERADO pelo workflow `livreto.yml` a partir do `content.py`.
+# No mesmo push que muda o número ele ainda está velho por alguns segundos, até o espelho
+# rodar — conferi-lo aqui faria este job falhar em todo push legítimo. Ele deriva do
+# mesmo `.whatsapp`, então está coberto na origem.
+#
+# Os telefones FICTÍCIOS da demo (personas tipo "+55 62 9 9612-4408") não casam com o
+# regex de propósito: ele exige 10+ dígitos CONTÍGUOS, e aqueles têm espaços e hífen.
+
+name: guarda (contato consistente)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contato:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: O número canônico é bem formado
+        run: |
+          CANON=$(cat .whatsapp | tr -d '[:space:]')
+          echo "canônico: $CANON"
+          echo "$CANON" | grep -qE '^55[0-9]{11}$' \
+            || { echo "::error::.whatsapp deve ser 55 + DDD + 9 dígitos (13 no total), veio '$CANON'"; exit 1; }
+
+      # `git ls-files` em vez de `grep -r`: confere só o que está RASTREADO (nada de
+      # __pycache__ ou lixo de ferramenta) e permite excluir o espelho gerado por
+      # CAMINHO — o `--exclude` do grep casa só basename e mataria a home junto.
+      - name: Todo link wa.me aponta para o número canônico
+        run: |
+          CANON=$(cat .whatsapp | tr -d '[:space:]')
+          FONTES=$(git ls-files '*.html' '*.py' '*.md' | grep -v '^livreto/index.html$')
+          ACHADOS=$(grep -Ioh 'wa\.me/[0-9]\{10,\}' $FONTES \
+                    | sed 's|wa\.me/||' | sort -u | grep -v "^$CANON$" || true)
+          if [ -n "$ACHADOS" ]; then
+            echo "::error::wa.me divergente do .whatsapp ($CANON): $ACHADOS"
+            grep -In 'wa\.me/[0-9]\{10,\}' $FONTES | grep -v "wa\.me/$CANON" || true
+            exit 1
+          fi
+          echo "todos os links wa.me das fontes batem com $CANON"
+
+      # O espelho é AVISO, não erro: no mesmo push que troca o número ele ainda está
+      # velho até o `livreto.yml` regenerar. Se continuar divergente depois disso, o
+      # aviso fica visível no run em vez de virar um número errado silencioso em produção.
+      - name: O espelho do livreto já refletiu o número?
+        run: |
+          CANON=$(cat .whatsapp | tr -d '[:space:]')
+          if grep -q "wa\.me/$CANON" livreto/index.html && \
+             ! grep -Ioh 'wa\.me/[0-9]\{10,\}' livreto/index.html | sed 's|wa\.me/||' | grep -qv "^$CANON$"; then
+            echo "espelho em dia"
+          else
+            echo "::warning::livreto/index.html ainda não reflete $CANON — o workflow livreto.yml deve regenerá-lo neste push. Se persistir no próximo run, o espelho quebrou."
+          fi
+
+      - name: O telefone do dado estruturado bate com o canônico
+        run: |
+          CANON=$(cat .whatsapp | tr -d '[:space:]')
+          RUINS=$(grep -rIoh '"telephone" *: *"[^"]*"' --include='*.html' . \
+                  | grep -v "+$CANON" || true)
+          if [ -n "$RUINS" ]; then
+            echo "::error::JSON-LD com telefone que não é +$CANON: $RUINS"
+            exit 1
+          fi
+          echo "nenhum telefone divergente no JSON-LD"
+
+      # ── DESTINO DO LOGIN ────────────────────────────────────────────────────
+      # Mesma doutrina do WhatsApp: `.login` na raiz é a FONTE DA VERDADE (dotfile, e
+      # o GitHub Pages não publica arquivo que começa com ponto). O destino vive
+      # literal em entrar.html (2×: o meta refresh do fallback sem-JS e o href do
+      # botão) porque front matter na home mataria o `diff <(curl -s …) index.html`,
+      # que é a rede de segurança do playbook. É ESTE job que garante que os literais
+      # nunca divirjam — e é o que torna a futura troca de destino (quando o login
+      # passar a ser servido em app.<marca>.app) uma edição de UMA linha, protegida.
+      - name: O destino do login é bem formado
+        run: |
+          CANON=$(cat .login | tr -d '[:space:]')
+          echo "canônico: $CANON"
+          echo "$CANON" | grep -qE '^https://[a-z0-9.-]+/logar(\?no_layout=true)?$' \
+            || { echo "::error::.login deve ser https://<host>/logar (opcionalmente ?no_layout=true), veio '$CANON'"; exit 1; }
+
+      - name: Todo destino de login aponta para o canônico
+        run: |
+          CANON=$(cat .login | tr -d '[:space:]')
+          FONTES=$(git ls-files '*.html' '*.py' '*.md' | grep -v '^livreto/index.html$')
+          ACHADOS=$(grep -Ioh 'https://[a-zA-Z0-9.-]*/logar[^"[:space:]>]*' $FONTES \
+                    | sort -u | grep -vxF "$CANON" || true)
+          if [ -n "$ACHADOS" ]; then
+            echo "::error::destino de login divergente do .login ($CANON): $ACHADOS"
+            grep -In 'https://[a-zA-Z0-9.-]*/logar' $FONTES || true
+            exit 1
+          fi
+          echo "todos os destinos de login batem com $CANON"
+
+      # O botão só vale se a ponte existir e estiver linkada. Sem esta checagem um
+      # refactor de header derruba o "Entrar" e NADA quebra — a página continua
+      # bonita, exatamente o cenário que motivou o guard do WhatsApp.
+      - name: A ponte /entrar existe e está linkada
+        run: |
+          test -f entrar.html \
+            || { echo "::error::entrar.html não existe — o botão Entrar aponta pro vazio"; exit 1; }
+          grep -q 'href="/entrar"' index.html \
+            || { echo "::error::index.html não linka /entrar (o botão Entrar sumiu do header?)"; exit 1; }
+          RUINS=$(grep -Ioh 'href="/entrar[^"]*"' $(git ls-files '*.html') \
+                  | sort -u | grep -vxF 'href="/entrar"' || true)
+          if [ -n "$RUINS" ]; then
+            echo "::error::link da ponte fora do caminho canônico href=\"/entrar\": $RUINS"
+            exit 1
+          fi
+          echo "ponte /entrar existe e está linkada"
+
+      # AVISO, não erro: o destino é o ERP, e um push de SITE não pode ficar
+      # bloqueado porque o ERP está lento ou em deploy. Mesmo critério do espelho
+      # do livreto acima — fica visível no run em vez de virar link morto silencioso.
+      - name: O destino do login está no ar?
+        run: |
+          CANON=$(cat .login | tr -d '[:space:]')
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 25 "$CANON" || echo 000)
+          if [ "$CODE" = "200" ]; then
+            echo "destino do login respondeu 200"
+          else
+            echo "::warning::destino do login ($CANON) respondeu $CODE — confira se o login está no ar"
+          fi

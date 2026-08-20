@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Índice primeiro: ele aponta pro sitemap deste site E pro do blog
+# (blog.acompanhaobra.app), que é servido pelo Rails do ERP. Cross-submit é legítimo
+# porque a propriedade no Search Console é de DOMÍNIO — cobre www, apex e blog.
+Sitemap: https://www.acompanhaobra.app/sitemap-index.xml
+Sitemap: https://www.acompanhaobra.app/sitemap.xml
