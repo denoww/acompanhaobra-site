@@ -39,7 +39,12 @@ RAIZ = Path(__file__).resolve().parents[2]
 # Sitemap do blog, servido pelo Rails do ERP. Entra no índice porque a
 # propriedade do Search Console é de DOMÍNIO (cobre www, apex e blog.), o que
 # torna o cross-submit legítimo.
-SITEMAP_BLOG = 'https://blog.acompanhaobra.app/sitemap.xml'
+# ⚠️ SEM `.xml`. A rota do Rails é `/sitemap` (config/routes/blog.rb); `/sitemap.xml`
+# responde **301** para ela. Sitemap entregue ao Google por redirect vira aviso no
+# Search Console — e este mesmo script reprova `<loc>` que não devolve 200 direto,
+# então o `.xml` era incoerente com a própria regra. Achado em 21/08/2026, ao conferir
+# o índice recém-submetido; as 3 marcas herdaram o `.xml` do mesmo blueprint.
+SITEMAP_BLOG = 'https://blog.acompanhaobra.app/sitemap'
 BASE = 'https://www.acompanhaobra.app'
 
 # Copy que não pode existir em página pública. Mesma doutrina do guard do blog:
