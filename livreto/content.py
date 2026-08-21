@@ -50,13 +50,13 @@ SITE = "https://www.acompanhaobra.app"
 HERO = {
     "eyebrow": "Livreto",
     "h1": "A obra deixa de morar no WhatsApp.",
-    "sub": "Cotação, contrato, etapas, medição e aditivo no mesmo lugar. E a reforma do "
-           "morador seguindo a NBR 16280 — com o termo assinado que protege o síndico "
-           "depois, quando alguém perguntar quem autorizou o quê.",
+    "sub": "Cotação, contrato, etapas, medição e aditivo no mesmo lugar — do jeito que "
+           "engenheiro, arquiteto e gerente de obra precisam para provar o que foi "
+           "combinado. Quando o cliente é um condomínio, o rito da NBR 16280 vem junto.",
 }
 
 CREDO = ('Da primeira cotação ao termo de conclusão, cada etapa fica registrada — e o que '
-         '<span class="g">protege o síndico</span> sai assinado, não combinado.')
+         'você vai <span class="g">precisar provar depois</span> sai assinado, não combinado.')
 
 # ---------------------------------------------------------------- storyboards
 # (chave, capítulo-cor, título, [(cena, título, legenda)])
@@ -210,19 +210,20 @@ PAINEL = [
 
 # Para quem é: (slug da foto, rótulo, dor concreta do ICP)
 SETORES = [
-    ("setor-fachada",    "Prédio residencial", "Fachada, telhado, elevador e garagem — obra grande, dinheiro do rateio e assembleia cobrando."),
-    ("setor-reforma",    "Reforma de unidade", "O morador quebra parede sem avisar, e a norma põe a responsabilidade no colo do síndico."),
-    ("setor-loteamento", "Loteamento",         "Casa erguida do zero no lote vazio, com regra de obra para fazer valer e vizinho reclamando."),
-    ("setor-carteira",   "Administradora",     "Dezenas de obras espalhadas por vários prédios, cada uma num grupo de WhatsApp diferente."),
+    ("setor-fachada",    "Edificação existente", "Fachada, telhado, elevador, garagem. Obra grande em prédio ocupado, com gente morando em volta do canteiro."),
+    ("setor-reforma",    "Reforma de unidade",   "O rito da NBR 16280: projeto, ART, checklist e termo — o serviço que você assina como responsável técnico."),
+    ("setor-loteamento", "Construção do zero",   "Casa erguida no lote vazio, do projeto aprovado ao habite-se, com regra de obra para fazer valer."),
+    ("setor-carteira",   "Quem toca várias",     "Engenheiro, construtora ou administradora com obras espalhadas — cada uma hoje num grupo de WhatsApp diferente."),
 ]
 
 DORES = [
     "A obra mora num grupo de WhatsApp: foto some, combinado vira boato e ninguém acha o contrato.",
-    "O morador começou a reforma no sábado e o síndico só soube pela poeira no corredor.",
-    "A assembleia pergunta quanto já foi pago e a resposta depende de alguém abrir a pasta certa.",
+    "O cliente pediu 'só uma mudancinha' e o extra comeu a margem sem ninguém registrar nada.",
+    "Perguntam quanto já foi pago e a resposta depende de alguém abrir a pasta certa.",
     "O empreiteiro pediu mais dinheiro no meio da obra e o aditivo ficou no verbal.",
     "Pagou o empreiteiro sem reter INSS — e a conta chega depois, com multa.",
-    "Trocou o síndico e o histórico do prédio foi junto: ninguém sabe quem fez a fachada, nem com que garantia.",
+    "A medição que o empreiteiro mandou não bate com o avanço físico, e não há registro para discutir.",
+    "Trocou o gestor e o histórico da obra foi junto: ninguém sabe o que foi feito, nem com que garantia.",
 ]
 
 # Compliance — o que sustenta a decisão do síndico se alguém questionar.
@@ -230,9 +231,9 @@ COMPLIANCE = [
     ("NBR 16280 — reforma em edificação",
      "A norma exige plano de reforma, responsável técnico com ART ou RRT e autorização formal "
      "antes de a obra começar. O fluxo do sistema é desenhado em cima disso.", ""),
-    ("O síndico decide, e fica registrado",
-     "A leitura da IA é orientativa: quem aprova ou rejeita é o síndico, que pode divergir e "
-     "registrar a justificativa. É a decisão dele que fica gravada.", ""),
+    ("Quem decide é gente, e fica registrado",
+     "A leitura da IA é orientativa: quem aprova ou rejeita é o responsável pela autorização, "
+     "que pode divergir e registrar a justificativa. É a decisão dele que fica gravada.", ""),
     ("Termo assinado dos dois lados",
      "Aprovação e conclusão saem com assinatura digital de síndico e morador. É o documento que "
      "responde por que a obra foi autorizada, e sob quais condições.", ""),
@@ -244,21 +245,21 @@ COMPLIANCE = [
 # ---------------------------------------------------------------- preço
 PRECO = [
     ("Primeira obra", "Grátis", "uma obra ativa",
-     "Para valer, não é teste de 14 dias. Abra a próxima obra do prédio e vá até o termo de "
+     "Para valer, não é teste de 14 dias. Abra a sua próxima obra e vá até o termo de "
      "conclusão sem pagar nada."),
-    ("Condomínio", "R$ 79", "por mês, por prédio",
+    ("Conta", "R$ 79", "por mês",
      "Obras ilimitadas e usuários ilimitados. A equipe externa convidada não ocupa licença."),
-    ("Carteira", "Administradora", "sob proposta",
-     "Vários condomínios na mesma carteira, com preço por volume e a visão cruzada das obras."),
+    ("Carteira", "Volume", "sob proposta",
+     "Muitas obras na mesma carteira, com preço por volume e a visão cruzada de todas elas."),
 ]
 
 NAOS = [
     ("Sem implantação",
-     "Não tem equipamento para comprar, obra para fazer nem taxa de setup. Você abre a obra e "
-     "começa a usar no mesmo dia."),
+     "Não tem equipamento para comprar, instalação para fazer nem taxa de setup. Você abre a obra "
+     "e começa a usar no mesmo dia."),
     ("Sem cobrar por obra",
-     "O preço é por condomínio, não por obra aberta. Três reformas de unidade no mesmo mês custam "
-     "o mesmo que nenhuma."),
+     "O preço é por conta, não por obra aberta. Três obras andando no mesmo mês custam o mesmo "
+     "que nenhuma."),
     ("Sem fidelidade",
      "Mês a mês, sem carência e sem multa. O produto tem que segurar você — não o contrato."),
 ]
@@ -267,6 +268,11 @@ NAOS = [
 # O capítulo mais importante do livreto. Nunca vender roadmap como pronto:
 # se não roda hoje, está aqui. Cada item foi conferido contra o ROADMAP.md do módulo.
 NAO_FAZ = [
+    ("Hoje a conta é do condomínio",
+     "O acompanhaobra é o módulo de obras do Seu Condomínio, e a conta ainda nasce vinculada a um "
+     "condomínio. Se você é engenheiro autônomo ou tem construtora, dá para entrar pela conta do "
+     "cliente que já usa o sistema, ou falar com a gente para abrir a sua. O cadastro de "
+     "profissional independente está em construção — e é melhor você saber disso agora.", ""),
     ("O diário não entra por WhatsApp",
      "O relatório diário é preenchido na tela do sistema, com as fotos e os vídeos anexados. Não "
      "existe o encarregado mandando áudio e a IA transcrevendo — isso é roadmap, e roadmap não se "
