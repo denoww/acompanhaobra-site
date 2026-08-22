@@ -268,11 +268,10 @@ NAOS = [
 # O capítulo mais importante do livreto. Nunca vender roadmap como pronto:
 # se não roda hoje, está aqui. Cada item foi conferido contra o ROADMAP.md do módulo.
 NAO_FAZ = [
-    ("Hoje a conta é do condomínio",
-     "O acompanhaobra é o módulo de obras do Seu Condomínio, e a conta ainda nasce vinculada a um "
-     "condomínio. Se você é engenheiro autônomo ou tem construtora, dá para entrar pela conta do "
-     "cliente que já usa o sistema, ou falar com a gente para abrir a sua. O cadastro de "
-     "profissional independente está em construção — e é melhor você saber disso agora.", ""),
+    ("A conta é aberta com a gente",
+     "A conta pode ser da sua construtora ou do seu escritório — não precisa mais ser um condomínio. "
+     "O que não existe é autocadastro pelo site: quem abre a conta é a nossa equipe, junto com você. "
+     "Se o seu cliente já usa o sistema, o caminho mais rápido é ele te convidar para a obra.", ""),
     ("O diário não entra por WhatsApp",
      "O relatório diário é preenchido na tela do sistema, com as fotos e os vídeos anexados. Não "
      "existe o encarregado mandando áudio e a IA transcrevendo — isso é roadmap, e roadmap não se "
