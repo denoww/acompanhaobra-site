@@ -161,6 +161,48 @@ section[id]{scroll-margin-top:64px}
 .heroimg{margin-top:56px;border-radius:0}
 .heroimg img{width:100%;object-fit:cover;max-height:620px}
 
+/* ── como funciona: passos numerados ─────────────────────────────────────
+   Grid que cai pra 1 coluna sozinho. O número é grande e âmbar porque a ORDEM
+   é a informação principal aqui — sem ele, vira mais uma grade de cards. */
+.passos{display:grid;gap:20px;margin-top:48px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.passo{border-top:2px solid var(--terra);padding-top:18px}
+.passo .num{font-size:13px;font-weight:600;color:var(--terra);letter-spacing:.06em}
+.passo h3{font-size:19px;letter-spacing:-.01em;margin:10px 0 8px;font-weight:600}
+.passo p{color:var(--tinta-2);margin:0;font-size:16px;line-height:1.5}
+
+/* ── simulador de obras ──────────────────────────────────────────────────
+   Herda o visual escuro do .painel (mesma família visual da peça de cima).
+   `tabular-nums` é obrigatório: sem ele o número dança de largura a cada passo
+   do slider e a leitura fica nervosa. */
+.simul{
+  background:#111014;border-radius:28px;padding:28px;color:var(--claro);
+  font-variant-numeric:tabular-nums;margin-top:40px;
+}
+.simul-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.simul-lbl{font-size:15px;color:var(--claro-2);letter-spacing:.01em}
+.simul-lbl b{color:var(--claro);font-weight:600}
+.simul-total{font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1}
+.simul-total .cifra{font-size:.55em;font-weight:500;margin-right:2px;color:var(--claro-2)}
+.simul-total small{font-size:.4em;font-weight:400;color:var(--claro-2);letter-spacing:0}
+.simul-total .palavra{color:var(--terra-clara)}
+.simul input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:980px;
+  margin:26px 0 10px;background:linear-gradient(90deg,var(--terra-clara) var(--pct,10%),rgba(255,255,255,.14) var(--pct,10%));
+  outline-offset:4px;
+}
+.simul input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;
+  border:0;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+.simul input[type=range]::-moz-range-thumb{
+  width:26px;height:26px;border-radius:50%;background:#fff;border:0;cursor:pointer;
+}
+.simul-escala{display:flex;justify-content:space-between;font-size:13px;color:var(--claro-2)}
+.simul-nota{margin:18px 0 0;font-size:15px;color:var(--claro-2);line-height:1.5;max-width:62ch}
+.simul-nota b{color:var(--claro);font-weight:500}
+@media (prefers-reduced-motion:reduce){.simul input[type=range]{transition:none}}
+
 .painel{
   background:#111014;border-radius:28px;padding:28px;color:var(--claro);
   font-variant-numeric:tabular-nums;
@@ -234,8 +276,9 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     </a>
     <span class="nav-r">
       <span class="nav-links">
-        <a href="#obra">Do condomínio</a>
-        <a href="#unidade">Da unidade</a>
+        <a href="#obra">A obra</a>
+        <a href="#como">Como funciona</a>
+        <a href="#unidade">NBR 16280</a>
         <a href="#preco">Preço</a>
         <a href="#limites">O que não faz</a>
       </span>
@@ -279,6 +322,49 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
       <div class="card"><h3>Termo de conclusão</h3><p>No fim, contratante e empreiteiro assinam. A obra só passa a concluída quando as duas assinaturas entram — e é esse termo que faz a garantia começar a contar.</p></div>
       <div class="card"><h3>O histórico fica</h3><p>Toda obra concluída fica na linha do tempo daquele cliente. Quem chegar depois — outro gestor, outro engenheiro — não começa do zero nem pergunta quem fez a fachada em 2019.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap rev">
+    <span class="olho">Como funciona</span>
+    <h2>Seis passos, na ordem em que a obra acontece.</h2>
+    <p class="lead">Do primeiro orçamento ao termo que fecha. Cada passo deixa registro — é isso que você vai ter na mão quando alguém perguntar.</p>
+
+    <div class="passos">
+      <div class="passo rev">
+        <span class="num">01</span>
+        <h3>Cotação por link</h3>
+        <p>Você descreve o serviço e cada fornecedor responde por um link, sem criar login. As propostas chegam lado a lado, comparáveis.</p>
+      </div>
+      <div class="passo rev">
+        <span class="num">02</span>
+        <h3>Contrato assinado</h3>
+        <p>Escolhido o empreiteiro, o contrato, o projeto e a ART ficam anexados à obra. O que precisa de assinatura vai assinado e volta arquivado.</p>
+      </div>
+      <div class="passo rev">
+        <span class="num">03</span>
+        <h3>Marcos com data</h3>
+        <p>A obra é dividida em etapas, cada uma com data prevista e percentual executado. O avanço é a soma delas, não um chute.</p>
+      </div>
+      <div class="passo rev">
+        <span class="num">04</span>
+        <h3>Diário do dia</h3>
+        <p>Clima, efetivo, atividades e materiais ficam registrados na tela, com as fotos anexadas e o nome de quem enviou.</p>
+      </div>
+      <div class="passo rev">
+        <span class="num">05</span>
+        <h3>Medição vira parcela</h3>
+        <p>A medição do mês entra como parcela do empreiteiro. A retenção de INSS entra sozinha e o evento da EFD-Reinf sai junto com os outros do mês.</p>
+      </div>
+      <div class="passo rev">
+        <span class="num">06</span>
+        <h3>Termo de conclusão</h3>
+        <p>Contratante e empreiteiro assinam. A obra só fecha com as duas assinaturas — e é desse termo que a garantia começa a contar.</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:40px">Mudou o escopo no caminho? O aditivo é assinado pelas partes e entra na parcela seguinte, em vez de virar acerto verbal.</p>
   </div>
 </section>
 
@@ -393,6 +479,23 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     <h2>R$ 79 por mês, por conta.</h2>
     <p class="preco">R$ 79 <small>/ mês · a primeira obra é grátis</small></p>
     <p class="lead" style="margin-top:24px">Obras ilimitadas, usuários ilimitados e a equipe externa não ocupa licença. Sem implantação, sem fidelidade, sem cobrança por obra aberta.</p>
+    <!-- Peça interativa. As irmãs têm uma calculadora que move o PREÇO, porque
+         cobram por unidade; aqui o preço é fixo, então o que move é o custo POR
+         OBRA. A interação argumenta — não decora: quem toca 6 obras vê a conta
+         ficar menor por obra, que é o oposto do que acontece quando se cobra por
+         obra aberta. Toda a matemática usa só o nosso R$ 79. -->
+    <figure class="simul rev" style="margin:0" role="group"
+            aria-label="Simulador: quanto custa por obra conforme o número de obras que você toca">
+      <div class="simul-topo">
+        <span class="simul-lbl">Você toca <b id="sQtd">6</b> obras ao mesmo tempo</span>
+        <span class="simul-total" id="sTotal" aria-live="polite"><span class="cifra">R$</span>13,17 <small>/ obra · mês</small></span>
+      </div>
+      <input type="range" id="sRange" min="1" max="30" value="6"
+             aria-label="Número de obras que você toca ao mesmo tempo" />
+      <div class="simul-escala"><span>1</span><span>15</span><span>30+</span></div>
+      <p class="simul-nota" id="sNota"></p>
+    </figure>
+
     <div class="acoes">
       <a class="btn" href="https://wa.me/5562985673142?text=Quero%20come%C3%A7ar%20com%20uma%20obra%20no%20acompanhaobra">Começar pela primeira obra</a>
       <a class="btn btn-ghost" href="/livreto/">Ver o livreto</a>
@@ -554,6 +657,50 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     });
   }, {rootMargin:'0px 0px -10% 0px', threshold:0.05});
   for (var j=0;j<alvos.length;j++) io.observe(alvos[j]);
+})();
+
+/* ---- simulador de obras ----
+   ⛔ Nenhum número aqui é de terceiro. `MENSAL` é o nosso preço; o resto é divisão.
+   Dizer "economize X%" seria inventar métrica — e a regra `métrica de economia ou
+   prazo inventada` de `Auto::Marcas::Acompanhaobra` existe exatamente contra isso. */
+(function () {
+  var range = document.getElementById('sRange');
+  if (!range) return;
+
+  var MENSAL = 79;          // R$/mês, obras e usuários ilimitados
+  var GRATIS_ATE = 1;       // a primeira obra é grátis, do cadastro ao termo
+
+  function brl(v) {
+    return v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calcular() {
+    var n = +range.value;
+    var max = +range.max;
+    range.style.setProperty('--pct', ((n - 1) / (max - 1) * 100) + '%');
+    document.getElementById('sQtd').textContent = n;
+
+    var total = document.getElementById('sTotal');
+    var nota  = document.getElementById('sNota');
+
+    if (n <= GRATIS_ATE) {
+      total.innerHTML = '<span class="palavra">Grátis</span> <small>/ mês</small>';
+      nota.innerHTML = 'A primeira obra é <b>grátis</b>, do cadastro ao termo de conclusão — ' +
+        'para valer, não é teste de 14 dias. Mexa no controle para ver o que acontece quando ' +
+        'a segunda obra chega.';
+      return;
+    }
+
+    total.innerHTML = '<span class="cifra">R$</span>' + brl(MENSAL / n) +
+                      ' <small>/ obra · mês</small>';
+    nota.innerHTML = 'São os mesmos <b>R$ ' + brl(MENSAL) + ' por mês</b> — obras e usuários ' +
+      'ilimitados, e a equipe externa convidada não ocupa licença. Com ' + n + ' obras, isso dá ' +
+      '<b>R$ ' + brl(MENSAL / n) + ' por obra</b>. Quem cobra por obra aberta faz o caminho ' +
+      'contrário: a conta cresce junto com você.';
+  }
+
+  range.addEventListener('input', calcular);
+  calcular();
 })();
 </script>
 

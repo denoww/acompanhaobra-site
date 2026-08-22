@@ -47,6 +47,10 @@ SCENES = {
              '<path d="M28 33c2-3 4-3 6 0s4 3 6 0"/>',
  "etapas":   '<circle cx="14" cy="22" r="4"/><circle cx="28" cy="22" r="4"/><circle cx="42" cy="22" r="4"/>'
              '<path d="M18 22h6M32 22h6"/><path d="M12.5 22l1.2 1.2 2.3-2.4"/>',
+ "diario":   '<rect x="16" y="9" width="24" height="29" rx="2"/>'
+             '<path d="M23 6h10v5H23z"/>'
+             '<path d="M21 20h14M21 26h14M21 32h9"/>'
+             '<circle cx="36" cy="15" r="2.5"/>',
  "medicao":  '<rect x="11" y="14" width="34" height="17" rx="2"/><path d="M11 21h34"/>'
              '<path d="M17 14v7M23 14v7M29 14v7M35 14v7M39 14v7"/><path d="M17 26h13"/>',
  "termo":    '<rect x="15" y="7" width="26" height="30" rx="2"/><path d="M20 14h16M20 20h16"/>'
@@ -454,7 +458,7 @@ def build():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Livreto do acompanhaobra — obra de condomínio e reforma pela NBR 16280</title>
+<title>Livreto do acompanhaobra — controle de obra do contrato ao termo de conclusão</title>
 <meta name="description" content="{desc}">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{url}">

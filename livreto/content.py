@@ -65,8 +65,9 @@ BOARDS = {
         ("cotacao",  "Cota com quem quiser", "Cada fornecedor recebe um link e responde sem criar login."),
         ("contrato", "Contrata e assina",    "Contrato, projeto e ART ficam anexados à obra, assinados."),
         ("etapas",   "Divide em etapas",     "Cada marco tem data prevista e percentual executado."),
+        ("diario",   "Registra o dia",       "Clima, efetivo, atividades e materiais, na tela, com foto."),
         ("medicao",  "Mede e paga",          "A medição do mês vira parcela, com o INSS retido sozinho."),
-        ("termo",    "Encerra assinado",     "Síndico e empreiteiro assinam. Só então a obra fecha."),
+        ("termo",    "Encerra assinado",     "Contratante e empreiteiro assinam. Só então a obra fecha."),
     ]),
     "nbr": ("petroleo", "A reforma do vizinho, do pedido ao termo", [
         ("morador",  "O morador solicita",   "Pelo mesmo aplicativo do boleto, com projeto e ART anexados."),
@@ -97,11 +98,11 @@ OBRA = [
      "Mudou o escopo? O aditivo é gerado, assinado pelas partes e aplicado na próxima parcela do "
      "empreiteiro — não vira um acerto verbal.", ""),
     ("Termo de conclusão",
-     "No fim, síndico e empreiteiro assinam. A obra só passa a concluída quando as duas "
-     "assinaturas entram.", ""),
-    ("O histórico do prédio",
-     "Toda obra concluída fica na linha do tempo do edifício. O próximo síndico não começa do "
-     "zero, nem pergunta quem fez a fachada em 2019.", ""),
+     "No fim, contratante e empreiteiro assinam. A obra só passa a concluída quando as duas "
+     "assinaturas entram — e é desse termo que a garantia começa a contar.", ""),
+    ("O histórico fica",
+     "Toda obra concluída fica na linha do tempo daquele cliente. Quem chegar depois — outro "
+     "gestor, outro engenheiro — não começa do zero, nem pergunta quem fez a fachada em 2019.", ""),
 ]
 
 UNIDADE = [
@@ -226,7 +227,7 @@ DORES = [
     "Trocou o gestor e o histórico da obra foi junto: ninguém sabe o que foi feito, nem com que garantia.",
 ]
 
-# Compliance — o que sustenta a decisão do síndico se alguém questionar.
+# Compliance — o que sustenta a decisão de quem autorizou, se alguém questionar.
 COMPLIANCE = [
     ("NBR 16280 — reforma em edificação",
      "A norma exige plano de reforma, responsável técnico com ART ou RRT e autorização formal "
