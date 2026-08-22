@@ -161,6 +161,31 @@ section[id]{scroll-margin-top:64px}
 .heroimg{margin-top:56px;border-radius:0}
 .heroimg img{width:100%;object-fit:cover;max-height:620px}
 
+/* ── faixa: foto full-bleed sangrando a largura toda ─────────────────────
+   Inspirada no `.faixa` do baterponto, mas SIMPLIFICADA: lá são dois arquivos
+   e `<picture>` com art direction; aqui é um arquivo só. Deu pra simplificar
+   porque a cena é o PRÉDIO, sem rosto nenhum — então o corte no mobile não
+   corre o risco de decapitar ninguém (a cicatriz do hero, no CLAUDE.md).
+   A altura encolhe no mobile via aspect-ratio; `object-position` mantém o
+   topo do andaime, que é o assunto. */
+.faixa{margin:0;padding:0;line-height:0}
+.faixa img{width:100%;height:auto;display:block;aspect-ratio:1600/700;object-fit:cover}
+@media(max-width:860px){.faixa img{aspect-ratio:16/10;object-position:center 30%}}
+
+/* ── media-row: foto ao lado do texto, alternando o lado ─────────────────
+   Portado de `livreto/build.py` (mesmo grid, mesmo breakpoint) — o livreto já
+   usava, a home não tinha nenhum padrão de foto-com-texto. `.flip` troca o lado
+   pra alternar o ritmo entre seções.
+   ⚠️ O `order:0` no mobile é obrigatório: sem ele o `.flip` sobrevive ao
+   empilhamento e a foto vai pra CIMA do texto só na seção invertida. */
+.mrow{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;margin-top:48px}
+.mrow.flip .m-media{order:2}
+@media(max-width:860px){.mrow{grid-template-columns:1fr;gap:28px}.mrow.flip .m-media{order:0}}
+.m-copy h3{font-size:26px;letter-spacing:-.012em;margin:0 0 12px;font-weight:600}
+.m-copy p{margin:0;color:var(--tinta-2);font-size:17px;line-height:1.5}
+.shot{margin:0}
+.shot img{width:100%;border-radius:20px;display:block;aspect-ratio:3/2;object-fit:cover}
+
 /* ── como funciona: passos numerados ─────────────────────────────────────
    Grid que cai pra 1 coluna sozinho. O número é grande e âmbar porque a ORDEM
    é a informação principal aqui — sem ele, vira mais uma grade de cards. */
@@ -314,6 +339,18 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     <span class="olho">A obra, do começo ao fim</span>
     <h2>Você toca a obra; o sistema guarda o combinado.</h2>
     <p class="lead">Fachada, estrutura, instalação, acabamento. As etapas têm data, a medição vira parcela e o aditivo é assinado antes de virar discussão no fim.</p>
+
+    <div class="mrow rev">
+      <div class="m-media">
+        <figure class="shot"><img src="/assets/obra-contrato.jpg"
+          alt="Engenheiro de capacete e colete aponta para a estrutura em obra enquanto conversa com o empreiteiro, prancheta na mão."
+          width="1200" height="800" loading="lazy" decoding="async" /></figure>
+      </div>
+      <div class="m-copy">
+        <h3>O combinado sai do verbal</h3>
+        <p>Cotação, contrato, prazo e escopo ficam registrados na obra — com quem assinou e quando. Quando alguém perguntar o que foi combinado, a resposta não depende de lembrar da conversa no canteiro.</p>
+      </div>
+    </div>
     <div class="grade">
       <div class="card"><h3>Cotação por link</h3><p>Cada fornecedor recebe um link e responde a proposta sem criar login nem instalar nada. As respostas chegam lado a lado, para escolher o vencedor.</p></div>
       <div class="card"><h3>Contrato e documentos</h3><p>Contrato, projeto, ART e nota ficam anexados à obra. O que precisa de assinatura vai assinado e volta arquivado, sem sair do sistema.</p></div>
@@ -368,11 +405,32 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
   </div>
 </section>
 
+<!-- Respiro visual entre os 6 passos numerados e o capítulo da NBR: era aqui que
+     a página emendava texto em texto por cinco seções seguidas. Full-bleed de
+     propósito — sem `.wrap`, sangrando a largura toda. -->
+<figure class="faixa">
+  <img src="/assets/obra-canteiro.jpg"
+       alt="Fachada de prédio residencial em obra, coberta por andaime e tela de proteção verde, ao fim da tarde."
+       width="1600" height="700" loading="lazy" decoding="async" />
+</figure>
+
 <section id="unidade" class="nevoa">
   <div class="wrap rev">
     <span class="olho">Quando o cliente é um condomínio</span>
     <h2>A NBR 16280, sem virar cartório.</h2>
     <p class="lead">Reforma dentro de apartamento tem rito próprio: a norma responsabiliza o condomínio pelo que acontece na unidade. Aqui ela chega com projeto, ART e termo — não por mensagem no grupo. É o recorte de quem atende prédio; o resto do sistema serve a obra de qualquer cliente.</p>
+
+    <div class="mrow rev">
+      <div class="m-media">
+        <figure class="shot"><img src="/assets/bento-art.jpg"
+          alt="Prancheta com a planta da reforma sobre a bancada da obra, ferramentas ao lado."
+          width="1200" height="800" loading="lazy" decoding="async" /></figure>
+      </div>
+      <div class="m-copy">
+        <h3>O documento técnico manda</h3>
+        <p>Projeto e ART chegam anexados à solicitação, não por mensagem no grupo. A IA lê o PDF e extrai engenheiro, CREA ou CAU, número, área e se há intervenção estrutural — e quem aprova continua sendo gente.</p>
+      </div>
+    </div>
     <div class="grade">
       <div class="card"><h3>O morador solicita</h3><p>Ele abre a reforma pelo mesmo aplicativo do boleto e anexa projeto e ART. O síndico recebe para analisar, em vez de caçar papel na conversa.</p></div>
       <div class="card"><h3>A ART é lida por IA<span class="selo">IA</span></h3><p>Do PDF saem o engenheiro, o CREA ou CAU, o número da ART, a área e se há intervenção estrutural — sem ninguém digitar.</p></div>
@@ -389,6 +447,18 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
     <span class="olho">Fiscalização e equipe</span>
     <h2>Quem não regulariza, responde.</h2>
     <p class="lead">Areia na rua, caçamba fora de hora, serviço fora do combinado. O registro sai com foto e prazo — e ninguém alega depois que não foi avisado.</p>
+
+    <div class="mrow flip rev">
+      <div class="m-media">
+        <figure class="shot"><img src="/assets/bento-equipe.jpg"
+          alt="Engenheira de capacete e colete conversa com o gestor no hall do prédio."
+          width="1200" height="800" loading="lazy" decoding="async" /></figure>
+      </div>
+      <div class="m-copy">
+        <h3>Cada um enxerga só a obra dele</h3>
+        <p>Engenheiro, empreiteiro, mestre e fiscal entram por convite de e-mail e caem direto na obra vinculada — pelo navegador, sem instalar nada. Concluiu, o acesso se encerra sozinho.</p>
+      </div>
+    </div>
     <div class="grade">
       <div class="card"><h3>Notificação com foto</h3><p>O registro sai com foto, gravidade e prazo de regularização, e diz o que acontece se o prazo passar.</p></div>
       <div class="card"><h3>Vira infração quando precisa</h3><p>Não regularizou? A notificação escala para a infração do módulo administrativo, herdando gravidade, itens e morador — e segue para advertência ou multa.</p></div>

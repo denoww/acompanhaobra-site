@@ -185,6 +185,34 @@ def confere_faq(arq: Path, bruto: str, visivel: str) -> None:
                           f'"{txt[:60]}…"')
 
 
+def confere_assets(arq: Path, bruto: str) -> None:
+    """Todo `/assets/...` referenciado tem que existir em disco.
+
+    ⚠️ Referenciar imagem que não existe NÃO quebra nada visível: o navegador só não
+    mostra o ícone, e o PDF sai com um retângulo vazio. `bento-art.jpg` e
+    `bento-equipe.jpg` foram para produção assim, dentro do PDF do livreto, e só foram
+    descobertas por leitura humana. O guard de página-em-branco não pega, porque a
+    página tem texto.
+
+    Cobre `src=` e `href=` (favicon, apple-touch-icon, preload) e o `srcset`.
+    """
+    # `/assets/...` é sempre absoluto a partir da raiz do site — inclusive dentro de
+    # /livreto/, que referencia por caminho absoluto. Daí usar RAIZ e não arq.parent.
+
+    vistos = set()
+    for m in re.finditer(r'(?:src|href)="(/assets/[^"?#]+)"', bruto):
+        vistos.add(m.group(1))
+    for m in re.finditer(r'srcset="([^"]+)"', bruto):
+        for parte in m.group(1).split(','):
+            cand = parte.strip().split(' ')[0]
+            if cand.startswith('/assets/'):
+                vistos.add(cand)
+
+    for ref in sorted(vistos):
+        if not (RAIZ / ref.lstrip('/')).is_file():
+            falha(f'{arq.name}: referencia {ref}, que NÃO existe em disco')
+
+
 def confere_copy(arq: Path, visivel: str) -> None:
     for nome, padrao in PROIBIDAS:
         for m in re.finditer(padrao, visivel, re.I):
@@ -249,6 +277,7 @@ def main() -> int:
 
         confere_copy(arq, visivel)
         confere_faq(arq, bruto, visivel)
+        confere_assets(arq, bruto)
 
         if re.search(r'name="robots"[^>]*content="[^"]*noindex', bruto):
             continue  # 404, /entrar e afins ficam fora do sitemap, por decisão da própria página

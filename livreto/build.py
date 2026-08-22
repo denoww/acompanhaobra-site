@@ -345,6 +345,11 @@ def build():
     cap_obra = chapter("obra", "Obra do condomínio", "Você contrata; o sistema cobra o prazo.",
         "Fachada, telhado, elevador, garagem. As etapas têm data, a medição vira parcela e o aditivo "
         "é assinado antes de virar conta.",
+        mrow(foto("obra-contrato", "Engenheiro de capacete e colete aponta para a estrutura em obra enquanto conversa com o empreiteiro."),
+             "O combinado sai do verbal.",
+             "Cotação, contrato, prazo e escopo ficam registrados na obra — com quem assinou e "
+             "quando. Quando alguém perguntar o que foi combinado, a resposta não depende de "
+             "lembrar da conversa no canteiro."),
         board("obra"), cards(C.OBRA, "terra"))
 
     cap_unidade = chapter("unidade", "Reforma de unidade", "A norma põe a reforma do vizinho no seu colo.",
@@ -360,6 +365,11 @@ def build():
     cap_fiscal = chapter("fiscalizacao", "Fiscalização", "Quem não regulariza, responde.",
         "Areia na rua, caçamba fora de hora, obra no domingo. O registro sai com foto e prazo — e o "
         "morador não alega que ninguém avisou.",
+        mrow(foto("obra-canteiro", "Fachada de prédio residencial em obra, coberta por andaime e tela de proteção verde, ao fim da tarde."),
+             "A obra acontece à vista de todo mundo.",
+             "Andaime, caçamba e entulho são visíveis para o prédio inteiro — e é por isso que o "
+             "registro com foto, gravidade e prazo importa: ele separa o que foi combinado do que "
+             "virou reclamação.", True),
         board("fiscal"),
         cards(C.FISCAL, "ambar"))
 
