@@ -337,14 +337,14 @@ def build():
   <p class="sub">{C.HERO["sub"]}</p>
   <div class="btns"><a class="btn btn-branco" href="{WA}">{wa_svg} Falar no WhatsApp</a></div>
   <div class="hero-stage rev"><img src="/assets/hero.jpg" width="1600" height="1067"
-    alt="Operários em andaime na reforma da fachada de um prédio, com o síndico observando do chão."></div>
+    alt="Operários em andaime na reforma da fachada de um prédio, com o responsável pela obra observando do chão."></div>
 </header>'''
 
     credo = f'<section class="credo rev"><h2>{C.CREDO}</h2></section>'
 
-    cap_obra = chapter("obra", "Obra do condomínio", "Você contrata; o sistema cobra o prazo.",
-        "Fachada, telhado, elevador, garagem. As etapas têm data, a medição vira parcela e o aditivo "
-        "é assinado antes de virar conta.",
+    cap_obra = chapter("obra", "A obra, do começo ao fim", "Você toca a obra; o sistema guarda o combinado.",
+        "Fachada, estrutura, instalação, acabamento. As etapas têm data, a medição vira parcela e o "
+        "aditivo é assinado antes de virar discussão no fim.",
         mrow(foto("obra-contrato", "Engenheiro de capacete e colete aponta para a estrutura em obra enquanto conversa com o empreiteiro."),
              "O combinado sai do verbal.",
              "Cotação, contrato, prazo e escopo ficam registrados na obra — com quem assinou e "
@@ -352,9 +352,10 @@ def build():
              "lembrar da conversa no canteiro."),
         board("obra"), cards(C.OBRA, "terra"))
 
-    cap_unidade = chapter("unidade", "Reforma de unidade", "A norma põe a reforma do vizinho no seu colo.",
-        "A NBR 16280 responsabiliza o condomínio pela obra que acontece dentro do apartamento. Aqui "
-        "ela chega com projeto, ART e termo — não por mensagem no grupo.",
+    cap_unidade = chapter("unidade", "Quando o cliente é um condomínio", "A NBR 16280, sem virar cartório.",
+        "Reforma dentro de apartamento tem rito próprio: a norma responsabiliza o condomínio pelo que "
+        "acontece na unidade. Aqui ela chega com projeto, ART e termo — não por mensagem no grupo. É o "
+        "recorte de quem atende prédio; o resto do livreto serve a obra de qualquer cliente.",
         mrow(foto("bento-art", "Prancheta com a planta da reforma sobre a bancada da obra."),
              "A ART deixa de ser um PDF que ninguém lê.",
              "Do documento saem o engenheiro, o CREA ou CAU, o número da ART, a área e se há "
@@ -363,8 +364,8 @@ def build():
         cards(C.UNIDADE, "petroleo"))
 
     cap_fiscal = chapter("fiscalizacao", "Fiscalização", "Quem não regulariza, responde.",
-        "Areia na rua, caçamba fora de hora, obra no domingo. O registro sai com foto e prazo — e o "
-        "morador não alega que ninguém avisou.",
+        "Areia na rua, caçamba fora de hora, serviço fora do combinado. O registro sai com foto e prazo — "
+        "e ninguém alega depois que não foi avisado.",
         mrow(foto("obra-canteiro", "Fachada de prédio residencial em obra, coberta por andaime e tela de proteção verde, ao fim da tarde."),
              "A obra acontece à vista de todo mundo.",
              "Andaime, caçamba e entulho são visíveis para o prédio inteiro — e é por isso que o "
@@ -374,15 +375,15 @@ def build():
         cards(C.FISCAL, "ambar"))
 
     cap_equipe = chapter("equipe", "A equipe da obra", "O engenheiro entra, e só na obra dele.",
-        "Quem toca a obra precisa subir documento e foto sem passar pelo WhatsApp do síndico — e sem "
-        "enxergar o resto do condomínio.",
-        mrow(foto("bento-equipe", "Engenheira de capacete e colete conversa com o síndico no hall do prédio."),
+        "Quem está no canteiro precisa subir documento e foto sem passar pelo WhatsApp de ninguém — e sem "
+        "enxergar o resto da conta.",
+        mrow(foto("bento-equipe", "Engenheira de capacete e colete conversa com o gestor no hall do prédio."),
              "Convite por e-mail, acesso que expira.",
              "Ele clica e cai direto na obra. Não vê o financeiro, não vê os moradores, não vê as "
              "outras obras. Concluída a obra, o acesso se encerra sozinho."),
         cards(C.EQUIPE, "petroleo"))
 
-    cap_dinheiro = chapter("dinheiro", "O dinheiro", "O síndico não vira contador para pagar a obra.",
+    cap_dinheiro = chapter("dinheiro", "O dinheiro", "Ninguém precisa virar contador para pagar a obra.",
         "A medição do mês é uma parcela. A retenção entra sozinha, e a declaração à Receita sai junto "
         "com as outras do mês.",
         cards(C.DINHEIRO, "terra"))
@@ -395,9 +396,9 @@ def build():
     setores = "".join(
         f'<figure class="setor rev"><img src="/assets/{s}.jpg" alt="{r}" loading="lazy" decoding="async">'
         f'<b>{r}</b><span>{d}</span></figure>' for s, r, d in C.SETORES)
-    cap_quem = chapter("quem", "Para quem é", "Se o prédio tem obra, serve.",
-        "Síndico morador ou profissional, administradora e gestor de loteamento — do retrofit de "
-        "fachada à reforma de um apartamento só.",
+    cap_quem = chapter("quem", "Para quem é", "Se você responde pela obra, serve.",
+        "Engenheiro, arquiteto, gerente de obra, construtor — e também quem contrata do outro lado do "
+        "balcão. O condomínio é um dos clientes, não o único.",
         f'<div class="setores">{setores}</div>',
         '<div class="cap-head rev" style="margin-top:64px"><h2 style="font-size:30px">'
         'O que dói hoje.</h2></div>',
@@ -408,7 +409,7 @@ def build():
         f'<div class="v">{v}</div><div class="u">{u}</div><p>{d}</p></div>'
         for i, (n, v, u, d) in enumerate(C.PRECO))
     naos = "".join(f'<div class="nao"><h4>{t}</h4><p>{d}</p></div>' for t, d in C.NAOS)
-    cap_preco = chapter("preco", "Preço", "R$ 79 por mês, por condomínio.",
+    cap_preco = chapter("preco", "Preço", "R$ 79 por mês, por conta.",
         "A primeira obra é grátis, do cadastro ao termo de conclusão. Sem taxa de implantação, sem "
         "cobrança por obra aberta e sem fidelidade.",
         f'<div class="planos rev">{planos}</div>',
@@ -421,7 +422,7 @@ def build():
 
     cap_lei = chapter("lei", "A norma", "O papel que responde por você depois.",
         "Quando alguém perguntar por que a obra foi autorizada, a resposta precisa estar assinada — "
-        "não na memória de quem era síndico na época.",
+        "não na memória de quem estava lá na época.",
         cards(C.COMPLIANCE, "petroleo"))
 
     tiles = "".join(f'<article class="tile c-{c}"><span class="tile-mk"></span>'

@@ -142,11 +142,10 @@ EQUIPE = [
      "Cada documento, foto e diário mostra o nome e o papel de quem subiu. Se alguém perguntar "
      "depois, a resposta está na tela.", ""),
     ("Cinco papéis",
-     "Engenheiro, empreiteiro, mestre de obras, fiscal e outros — cada um com a sua cor na tela "
-     "do síndico.", ""),
+     "Engenheiro, empreiteiro, mestre de obras, fiscal e outros — cada um com a sua cor na tela.", ""),
     ("Acaba a obra, acaba o acesso",
-     "Concluiu, os acessos da equipe externa se encerram sozinhos. O síndico também tira o acesso "
-     "em um clique, e o convite que ninguém usou expira em trinta dias.", ""),
+     "Concluiu, os acessos da equipe externa se encerram sozinhos. Dá para revogar em um clique "
+     "antes disso, e o convite que ninguém usou expira em trinta dias.", ""),
 ]
 
 FISCAL = [
@@ -167,9 +166,9 @@ FISCAL = [
 DINHEIRO = [
     ("Pagamento por medição",
      "A medição do mês é uma parcela. O empreiteiro é o mesmo cadastro de fornecedor que o "
-     "financeiro do condomínio já usa.", ""),
+     "financeiro da conta já usa.", ""),
     ("O INSS é retido sozinho",
-     "A retenção entra na parcela sem o síndico precisar saber calcular. Ele não vira contador "
+     "A retenção entra na parcela sem ninguém precisar saber a regra de cabeça — nem virar contador "
      "para pagar a obra.", ""),
     ("EFD-Reinf transmitido",
      "O evento de retenção é gerado e transmitido ao governo pelo próprio sistema, junto com os "
