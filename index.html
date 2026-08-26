@@ -159,7 +159,13 @@ section[id]{scroll-margin-top:64px}
 .hero{padding:96px 0 0}
 .hero .lead{margin-bottom:0}
 .heroimg{margin-top:56px;border-radius:0}
-.heroimg img{width:100%;object-fit:cover;max-height:620px}
+/* ⚠️ `object-position` NAO e opcional aqui. Com `max-height` + `object-fit:cover` e sem
+   ele, o default `center` corta igual em cima e embaixo — e numa viewport larga isso
+   tira ~200px do topo, justamente onde estao as cabecas. A foto ficava de gente sem
+   cabeca. `center 28%` desloca a janela pra cima e mantem rosto e capacete.
+   ⛔ Nao troque por `center` "pra ficar simetrico": e o bug. */
+.heroimg img{width:100%;object-fit:cover;object-position:center 28%;max-height:620px}
+@media(max-width:860px){.heroimg img{max-height:420px;object-position:center 24%}}
 
 /* ── faixa: foto full-bleed sangrando a largura toda ─────────────────────
    Inspirada no `.faixa` do baterponto, mas SIMPLIFICADA: lá são dois arquivos
