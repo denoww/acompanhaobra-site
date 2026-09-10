@@ -1,1 +1,1 @@
-https://www.seucondominio.com.br/logar
+https://app.acompanhaobra.app/logar?no_layout=true

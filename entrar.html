@@ -15,7 +15,7 @@
      ⚠️ A URL aparece 2× nesta página (aqui e no href do botão; o JS lê esse href em vez
      de repetir o literal). A FONTE DA VERDADE é o dotfile `.login` na raiz, e o workflow
      `guarda.yml` barra o push se qualquer uma delas divergir dele. -->
-<meta http-equiv="refresh" content="1;url=https://www.seucondominio.com.br/logar" />
+<meta http-equiv="refresh" content="1;url=https://app.acompanhaobra.app/logar?no_layout=true" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.json" />
@@ -36,7 +36,7 @@
     letter-spacing:-.02em;color:#1d1d1f;text-decoration:none;margin-bottom:32px;
   }
   .marca img{width:24px;height:24px;border-radius:6px}
-  .marca .tld{color:#7C3AED}
+  .marca .tld{color:#B45309}
   h1{
     /* tracking negativo só em tamanho grande — abaixo de 20px a Apple inverte o sinal */
     font-size:clamp(28px,5vw,40px);line-height:1.1;letter-spacing:-.015em;
@@ -46,9 +46,9 @@
   a.btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     border-radius:980px;padding:12px 22px;font-size:17px;font-weight:400;
-    text-decoration:none;background:#7C3AED;color:#fff;transition:background .1s linear;
+    text-decoration:none;background:#B45309;color:#fff;transition:background .1s linear;
   }
-  a.btn:hover{background:#6D28D9}
+  a.btn:hover{background:#92400E}
   .giro{
     width:18px;height:18px;border-radius:50%;flex-shrink:0;
     border:2px solid rgba(255,255,255,.35);border-top-color:#fff;
@@ -59,7 +59,7 @@
   @media(prefers-reduced-motion:reduce){ .giro{display:none} }
   small{display:block;margin-top:40px;font-size:14px;color:#6e6e73;line-height:1.6}
   small a{color:#6e6e73}
-  a:focus-visible{outline:3px solid #7C3AED;outline-offset:3px;border-radius:4px}
+  a:focus-visible{outline:3px solid #B45309;outline-offset:3px;border-radius:4px}
 </style>
 </head>
 <body>
@@ -72,7 +72,7 @@
     <p class="sub">Estamos abrindo a tela de login. Se não acontecer em alguns segundos, use o botão abaixo.</p>
     <!-- id="ir": o JS do rodapé lê o href DESTE link em vez de repetir a URL, então o
          destino tem um literal a menos para divergir. -->
-    <a class="btn" id="ir" href="https://www.seucondominio.com.br/logar">
+    <a class="btn" id="ir" href="https://app.acompanhaobra.app/logar?no_layout=true">
       <span class="giro" aria-hidden="true"></span>
       Continuar para o login
     </a>

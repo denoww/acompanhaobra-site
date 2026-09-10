@@ -109,6 +109,20 @@ section[id]{scroll-margin-top:64px}
 .nav-links a:hover{opacity:1;color:var(--terra)}
 .nav-cta{background:var(--terra);color:#fff;padding:6px 14px;border-radius:980px;font-size:13px;font-weight:500;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:#92400E}
+.nav-acoes{display:flex;align-items:center;gap:10px}
+/* "Entrar" é OUTLINE de propósito: o WhatsApp é o CTA primário (sólido, para quem
+   ainda não é cliente) e o login serve quem JÁ é. Mesma métrica do .nav-cta para os
+   dois pills casarem. Fica FORA do .nav-links: assim sobrevive ao mobile, que é
+   justamente onde o cliente logado procura por ele.
+   Cor: o texto usa #92400E e não var(--terra) pelo mesmo motivo do resto do site —
+   #B45309 sobre branco dá ~4,1:1 e reprova o AA em texto de 13px. */
+.nav-entrar{
+  color:#92400E;padding:6px 14px;border-radius:980px;
+  font-size:13px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;
+  border:1px solid rgba(180,83,9,.4);
+  transition:background .2s,color .2s,border-color .2s
+}
+.nav-entrar:hover{background:var(--terra);color:#fff;border-color:var(--terra)}
 /* Abaixo de 760px o menu do meio sai e sobram marca + CTA — é o que cabe sem virar
    hambúrguer, e hambúrguer para 4 links é peso de JS por nada. */
 @media (max-width:760px){ .nav-links{display:none} }
@@ -313,7 +327,10 @@ details p{margin:14px 0 0;color:var(--tinta-2);max-width:70ch}
         <a href="#preco">Preço</a>
         <a href="#limites">O que não faz</a>
       </span>
-      <a class="nav-cta" href="https://wa.me/5562985673142?text=Vim%20pelo%20menu%20do%20site%20do%20acompanhaobra">Falar no WhatsApp</a>
+      <span class="nav-acoes">
+        <a class="nav-entrar" href="/entrar">Entrar</a>
+        <a class="nav-cta" href="https://wa.me/5562985673142?text=Vim%20pelo%20menu%20do%20site%20do%20acompanhaobra">Falar no WhatsApp</a>
+      </span>
     </span>
   </div>
 </nav>
