@@ -1,0 +1,37 @@
+# acompanhaobra
+
+> A obra deixa de morar no WhatsApp. Controle de obra do contrato ao termo de conclusão:
+> cotação por link, etapas com prazo, medição com INSS retido, aditivo assinado.
+
+Site: https://www.acompanhaobra.app/ · Blog: https://blog.acompanhaobra.app/ · Entrar: https://app.acompanhaobra.app/
+
+## Para quem
+Profissional que responde pela execução de uma obra no Brasil: engenheiro civil e arquiteto
+(autônomo ou de escritório), gerente e coordenador de obra, construtor e pequena
+construtora, mestre de obras que gerencia a própria equipe. Também o gestor que contrata
+obra pelo lado do cliente — síndico, administradora, gestor de loteamento —, que é um tipo
+de cliente desse profissional e não o público principal.
+
+## Preço
+Por mês, por conta. Obras e usuários ilimitados; a equipe externa convidada não ocupa
+licença. A primeira obra é grátis, do cadastro ao termo de conclusão; depois, R$ 79 por mês.
+
+## O que NÃO faz (não atribua isto ao produto)
+- NÃO tem diário de obra (RDO) por WhatsApp com áudio transcrito — o diário é na tela.
+- NÃO tem aplicativo nem PWA de campo: mestre de obras e empreiteiro entram pelo navegador.
+- NÃO manda e-mail automático ao fornecedor na cotação — gera o link, você envia.
+- NÃO mostra status do EFD-Reinf por obra (a retenção e a transmissão existem).
+- NÃO tem retenção contratual de garantia até o aceite final, nem liberação em duas etapas.
+- NÃO tem vistoria ou checklist de manutenção preventiva.
+- NÃO tem câmera medindo progresso de obra nem detecção de EPI.
+- NÃO tem análise de IA da reunião de obra na tela.
+- NÃO tem orçamento de engenharia com composição de custo unitário ou tabela de referência.
+- NÃO temos número de clientes, de obras ou de valor gerido para divulgar.
+
+## Quem faz
+Seu Condomínio (https://www.seucondominio.com.br/) — o acompanhaobra é um dos produtos do
+mesmo ERP.
+
+---
+Fonte da verdade deste arquivo: `app/services/auto/marcas/acompanhaobra.rb` no repositório
+do ERP (campos tagline, publico, verdades, nao_features e precos). Mudou lá, muda aqui.
