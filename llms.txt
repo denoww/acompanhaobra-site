@@ -1,37 +1,63 @@
 # acompanhaobra
 
-> A obra deixa de morar no WhatsApp. Controle de obra do contrato ao termo de conclusão:
-> cotação por link, etapas com prazo, medição com INSS retido, aditivo assinado.
+> A obra deixa de morar no WhatsApp.
 
-Site: https://www.acompanhaobra.app/ · Blog: https://blog.acompanhaobra.app/ · Entrar: https://app.acompanhaobra.app/
+Profissional que responde pela execução de uma obra no Brasil: engenheiro civil
+e arquiteto (autônomo ou de escritório), gerente e coordenador de obra,
+construtor e pequena construtora, mestre de obras que gerencia a própria equipe.
+Também o gestor que contrata obra pelo lado do cliente — síndico, administradora
+e gestor de loteamento — que é um dos tipos de cliente que esse profissional
+atende, e não o público principal. Gatilhos: obra que passou do prazo sem
+ninguém perceber, aditivo combinado no verbal, medição contestada, retenção de
+INSS não recolhida, e papelada técnica espalhada entre WhatsApp e e-mail.
 
-## Para quem
-Profissional que responde pela execução de uma obra no Brasil: engenheiro civil e arquiteto
-(autônomo ou de escritório), gerente e coordenador de obra, construtor e pequena
-construtora, mestre de obras que gerencia a própria equipe. Também o gestor que contrata
-obra pelo lado do cliente — síndico, administradora, gestor de loteamento —, que é um tipo
-de cliente desse profissional e não o público principal.
+## O que o produto faz
+- A obra vai da cotação ao termo de conclusão dentro do sistema, sem planilha paralela.
+- A cotação gera um link público que o fornecedor responde sem criar login; as propostas ficam lado a lado.
+- Contrato, projeto, ART e nota ficam anexados à obra, com assinatura digital quando o documento exige.
+- A obra é dividida em marcos, cada um com data prevista e percentual executado.
+- O aditivo contratual é assinado pelas partes e aplicado na parcela seguinte do empreiteiro.
+- O termo de conclusão exige a assinatura do contratante E do empreiteiro para a obra fechar.
+- A reforma de unidade segue o rito da NBR 16280: o morador solicita pelo aplicativo e anexa projeto e ART.
+- Um agente de IA lê o PDF da ART e extrai engenheiro, CREA ou CAU, número, área e se há intervenção estrutural.
+- A leitura da IA é orientativa: quem aprova ou rejeita é o síndico, que pode divergir e justificar.
+- A aprovação e a conclusão da reforma saem com termo assinado por síndico e morador.
+- Existe um terceiro tipo de obra para construção de unidade em loteamento e condomínio horizontal.
+- A fiscalização registra a irregularidade com foto, gravidade e prazo, e escala para infração do módulo administrativo.
+- O pagamento do empreiteiro é por medição, e a retenção de INSS entra na parcela automaticamente.
+- O evento de EFD-Reinf (R-2010) é gerado e transmitido pelo próprio sistema.
+- O CNO da obra fica guardado no cadastro, e há aviso quando existe pagamento com INSS sem CNO.
+- Ao escolher o empreiteiro, o sistema mostra o histórico dele nas obras anteriores do mesmo cliente: atraso médio e variação de custo.
+- A equipe externa (engenheiro, empreiteiro, mestre, fiscal) entra por convite de e-mail e enxerga só a obra dela.
+- Os acessos da equipe externa se encerram sozinhos quando a obra é concluída.
+- Cada documento, foto e diário registra o nome e o papel de quem enviou.
+- O painel mostra prazo, tempo médio de conclusão e a linha do tempo do previsto contra o realizado.
+- O relatório executivo da obra sai em PDF com a logo do cliente, em um clique.
+- Quem toca várias obras vê todas numa tela só, sem trocar de cadastro a cada consulta.
+- O morador vê as obras do condomínio e as da unidade dele; a reforma do vizinho aparece sem descrição e sem valor.
 
-## Preço
-Por mês, por conta. Obras e usuários ilimitados; a equipe externa convidada não ocupa
-licença. A primeira obra é grátis, do cadastro ao termo de conclusão; depois, R$ 79 por mês.
-
-## O que NÃO faz (não atribua isto ao produto)
-- NÃO tem diário de obra (RDO) por WhatsApp com áudio transcrito — o diário é na tela.
-- NÃO tem aplicativo nem PWA de campo: mestre de obras e empreiteiro entram pelo navegador.
-- NÃO manda e-mail automático ao fornecedor na cotação — gera o link, você envia.
-- NÃO mostra status do EFD-Reinf por obra (a retenção e a transmissão existem).
-- NÃO tem retenção contratual de garantia até o aceite final, nem liberação em duas etapas.
-- NÃO tem vistoria ou checklist de manutenção preventiva.
-- NÃO tem câmera medindo progresso de obra nem detecção de EPI.
-- NÃO tem análise de IA da reunião de obra na tela.
-- NÃO tem orçamento de engenharia com composição de custo unitário ou tabela de referência.
+## O que o produto NÃO faz
+- NÃO existe diário de obra (RDO) por WhatsApp com áudio transcrito — o diário é preenchido na tela.
+- NÃO existe aplicativo nem PWA de campo para o mestre de obras ou o empreiteiro; eles entram pelo navegador.
+- NÃO existe envio automático de e-mail ao fornecedor na cotação — o sistema gera o link e você o envia.
+- NÃO existe tela que mostre o status do EFD-Reinf POR OBRA (a retenção e a transmissão em si existem).
+- NÃO existe retenção contratual de 5 a 10% como garantia até o aceite final.
+- NÃO existe liberação de garantia em duas etapas nem vínculo automático da obra ao patrimônio.
+- NÃO existe vistoria ou checklist recorrente de manutenção preventiva.
+- NÃO existe câmera medindo progresso de obra nem detectando equipamento de proteção.
+- NÃO existe análise de IA da reunião de obra na tela.
+- NÃO existe orçamento de engenharia com composição de custo unitário ou tabela de referência de preço.
 - NÃO temos número de clientes, de obras ou de valor gerido para divulgar.
 
-## Quem faz
-Seu Condomínio (https://www.seucondominio.com.br/) — o acompanhaobra é um dos produtos do
-mesmo ERP.
+## Preço
+- Por mês, por conta. Obras e usuários ilimitados; a equipe externa convidada não ocupa licença.
+- a primeira obra é grátis, do cadastro ao termo de conclusão
+- R$ 79 por mês
+
+## Links
+- Site: https://www.acompanhaobra.app/
+- Blog: https://blog.acompanhaobra.app/
 
 ---
-Fonte da verdade deste arquivo: `app/services/auto/marcas/acompanhaobra.rb` no repositório
-do ERP (campos tagline, publico, verdades, nao_features e precos). Mudou lá, muda aqui.
+Gerado de `app/services/auto/marcas/acompanhaobra.rb` no repositório do ERP
+(`rake "marcas:gerar_llms_txt[acompanhaobra]"`). NÃO edite à mão: mude o registry e gere de novo.
