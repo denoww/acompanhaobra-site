@@ -57,6 +57,7 @@ INSS não recolhida, e papelada técnica espalhada entre WhatsApp e e-mail.
 ## Links
 - Site: https://www.acompanhaobra.app/
 - Blog: https://blog.acompanhaobra.app/
+- Perguntas antes de escolher: https://www.acompanhaobra.app/perguntas-antes-de-escolher
 
 ---
 Gerado de `app/services/auto/marcas/acompanhaobra.rb` no repositório do ERP
