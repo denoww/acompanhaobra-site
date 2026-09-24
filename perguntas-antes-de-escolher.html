@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Antes de escolher um sistema de obra</title>
+<meta name="description" content="As perguntas que decidem a escolha de um sistema de obra: cotação, medição, EFD-Reinf, reforma de unidade pela NBR 16280 e quanto custa." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://www.acompanhaobra.app/perguntas-antes-de-escolher" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="acompanhaobra" />
+<meta property="og:title" content="Antes de escolher um sistema de obra" />
+<meta property="og:description" content="As perguntas que decidem a escolha de um sistema de obra: cotação, medição, EFD-Reinf, reforma de unidade pela NBR 16280 e quanto custa." />
+<meta property="og:url" content="https://www.acompanhaobra.app/perguntas-antes-de-escolher" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:image" content="https://www.acompanhaobra.app/assets/og.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Antes de escolher um sistema de obra" />
+<meta name="twitter:description" content="As perguntas que decidem a escolha de um sistema de obra: cotação, medição, EFD-Reinf, reforma de unidade pela NBR 16280 e quanto custa." />
+<meta name="twitter:image" content="https://www.acompanhaobra.app/assets/og.jpg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Azeret+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  /* mesmo sistema visual do index: superfícies apple, SF Pro/Inter, pill, 44px de nav */
+  :root{
+    --branco:#fff; --nevoa:#f5f5f7;
+    --tinta:#1d1d1f; --tinta-2:#6e6e73;
+    --roxo:#B45309; --roxo-esc:#92400E;
+    --linha:rgba(0,0,0,.12); --max:760px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--branco);color:var(--tinta);
+    font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',system-ui,sans-serif;
+    font-size:17px;line-height:1.4705882353;letter-spacing:-.022em;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  }
+  a{color:var(--roxo-esc);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:2px}
+  :focus-visible{outline:3px solid var(--roxo);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  header.nav{
+    position:sticky;top:0;z-index:50;height:52px;
+    border-bottom:1px solid rgba(0,0,0,.08);
+    background:rgba(255,255,255,.72);
+    backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+  }
+  .nav-in{max-width:var(--max);margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center}
+  .brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:17px;letter-spacing:-.02em;color:var(--tinta)}
+  .brand:hover{text-decoration:none}
+  .brand img{width:24px;height:24px;border-radius:6px;display:block}
+  .brand .tld{color:var(--roxo)}
+
+  main{padding:72px 0 96px}
+  /* eyebrow grande e semibold, como nas feature pages */
+  .eyebrow{display:block;font-size:21px;font-weight:600;letter-spacing:.011em;line-height:1.19;color:var(--roxo)}
+  h1{font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.005em;line-height:1.0714;margin-top:8px}
+  .atualizado{margin-top:16px;font-size:14px;color:var(--tinta-2);letter-spacing:-.016em}
+  .intro{margin-top:28px;font-size:21px;line-height:1.381;letter-spacing:.011em;color:var(--tinta-2)}
+  h2{font-size:28px;font-weight:600;letter-spacing:.007em;line-height:1.1428;
+     margin:52px 0 0;padding-top:32px;border-top:1px solid var(--linha)}
+  h3{font-size:19px;font-weight:600;letter-spacing:.012em;margin-top:26px}
+  p{margin-top:14px;color:var(--tinta)}
+  p.sub{color:var(--tinta-2);font-size:15px}
+  ul{margin:16px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+  li{padding-left:22px;position:relative;color:var(--tinta)}
+  li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--roxo)}
+  li b{font-weight:600}
+  /* card sem sombra: separa por contraste, como na apple */
+  .card{background:var(--nevoa);border-radius:18px;padding:26px 28px;margin-top:18px}
+  .mono{font-family:'Azeret Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;letter-spacing:0}
+  footer{border-top:1px solid var(--linha);background:var(--nevoa);padding:40px 0;margin-top:80px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--tinta-2);font-size:13px}
+  @media(max-width:600px){ .wrap,.nav-in{padding:0 20px} main{padding:52px 0 72px} }
+  .btn-optout{font:inherit;font-size:15px;font-weight:600;color:var(--branco);background:var(--roxo-esc);
+    border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+  .btn-optout:hover{background:var(--roxo)}
+  .btn-optout[disabled]{background:var(--tinta-2);cursor:default}
+  .q{border-top:1px solid var(--linha);padding:28px 0}
+  .q h2{font-size:21px;line-height:1.19;letter-spacing:.011em;margin:0 0 10px}
+  .q p{color:var(--tinta-2)}
+  .fecho{margin-top:40px;padding:24px;background:var(--nevoa);border-radius:18px}
+</style>
+
+<!-- Medição — mesma tag da home. Aqui ela também precisa existir para o botão de
+     opt-out (seção "Visitantes deste site") poder desligá-la nesta mesma página. -->
+<script>
+  try { if (localStorage.getItem('sem-analytics') === '1') window['ga-disable-G-9L1Q230GWC'] = true; } catch (e) {}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L1Q230GWC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'granted'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-9L1Q230GWC', {
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+  document.addEventListener('click', function (e) {
+    var alvo = e.target;
+    if (!alvo || !alvo.closest) return;
+    var a = alvo.closest('a[href*="wa.me"]');
+    if (!a) return;
+    gtag('event', 'contato_whatsapp', { pagina: location.pathname, cta: a.className || 'sem-classe' });
+  });
+</script>
+</head>
+
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/"><img src="/assets/brand-mark.png" width="28" height="28" alt="" /><span>acompanhaobra<span class="tld">.app</span></span></a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <span class="eyebrow">Para quem está decidindo</span>
+    <h1>Antes de escolher um sistema de obra</h1>
+
+    <p class="intro">
+      Escolher um sistema de obra é escolher onde a decisão fica registrada quando alguém perguntar, meses depois, por que a parcela foi aquela. As perguntas abaixo são as que mudam essa resposta — com o que o acompanhaobra faz, e também o que ele não faz.
+    </p>
+
+      <div class="q">
+        <h2>O fornecedor precisa criar conta para mandar a proposta?</h2>
+        <p>Não. A cotação gera um link público: o fornecedor abre, responde e pronto. As propostas ficam lado a lado na mesma tela, o que torna a comparação uma leitura e não um trabalho de recortar e colar de e-mail.</p>
+      </div>
+
+      <div class="q">
+        <h2>Como o empreiteiro é pago?</h2>
+        <p>Por medição. A obra é dividida em marcos, cada um com data prevista e percentual executado, e a parcela sai do que foi medido. A retenção de INSS entra na parcela automaticamente, sem alguém ter que lembrar.</p>
+      </div>
+
+      <div class="q">
+        <h2>O sistema resolve o EFD-Reinf?</h2>
+        <p>O evento R-2010 é gerado e transmitido pelo próprio sistema, e o CNO da obra fica no cadastro — com aviso quando existe pagamento com INSS sem CNO. O que ainda não existe é uma tela que mostre o status do Reinf por obra.</p>
+      </div>
+
+      <div class="q">
+        <h2>E a reforma dentro do apartamento do morador?</h2>
+        <p>Segue o rito da NBR 16280: o morador solicita pelo aplicativo e anexa projeto e ART. Um agente de IA lê o PDF da ART e extrai engenheiro, registro no CREA ou CAU, número, área e se há intervenção estrutural — mas a leitura é orientativa: quem aprova ou rejeita é o síndico, que pode divergir e justificar.</p>
+      </div>
+
+      <div class="q">
+        <h2>Quem de fora consegue entrar, e até quando?</h2>
+        <p>Engenheiro, empreiteiro, mestre e fiscal entram por convite de e-mail e enxergam só a obra deles. Quando a obra é concluída, esses acessos se encerram sozinhos — é o passo que todo mundo esquece de dar na mão.</p>
+      </div>
+
+      <div class="q">
+        <h2>O vizinho vê a reforma da minha unidade?</h2>
+        <p>Ele vê que existe uma obra naquela unidade, sem descrição e sem valor. O morador enxerga as obras do condomínio e as da própria unidade.</p>
+      </div>
+
+      <div class="q">
+        <h2>Como escolher entre dois empreiteiros?</h2>
+        <p>Na hora de escolher, o sistema mostra o histórico de cada um nas obras anteriores do mesmo cliente: atraso médio e variação de custo. É o dado que normalmente vive na memória de quem estava lá.</p>
+      </div>
+
+      <div class="q">
+        <h2>Como o pessoal que está na obra entra no sistema?</h2>
+        <p>Pelo navegador, inclusive no do celular: não existe programa de campo para instalar, e o diário é preenchido na tela, não por WhatsApp com áudio transcrito. Dizemos isso na frente porque é o tipo de expectativa que só aparece na primeira semana de uso.</p>
+      </div>
+
+      <div class="q">
+        <h2>O que o sistema NÃO faz?</h2>
+        <p>Não faz orçamento de engenharia com composição de custo unitário, não retém percentual contratual como garantia até o aceite final, não tem vistoria recorrente de manutenção preventiva e não usa câmera para medir progresso de obra. Também não temos número de clientes nem de valor gerido para divulgar.</p>
+      </div>
+
+      <div class="q">
+        <h2>Quanto custa?</h2>
+        <p>R$ 79 por mês, por conta, com obras e usuários ilimitados — e a equipe externa convidada não ocupa licença. A primeira obra é grátis, do cadastro ao termo de conclusão.</p>
+      </div>
+
+    <div class="fecho">
+      <p>
+        Ficou alguma pergunta que não está aqui?
+        <a href="https://wa.me/5562985673142?text=Ol%C3%A1%21%20Estou%20escolhendo%20um%20sistema%20de%20obra%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener">mande no WhatsApp</a>
+        — respondemos inclusive o que o sistema não resolve.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 acompanhaobra · gestão de obra e reforma</span>
+    <a href="/">← Voltar ao site</a>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O fornecedor precisa criar conta para mandar a proposta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A cotação gera um link público: o fornecedor abre, responde e pronto. As propostas ficam lado a lado na mesma tela, o que torna a comparação uma leitura e não um trabalho de recortar e colar de e-mail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como o empreiteiro é pago?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por medição. A obra é dividida em marcos, cada um com data prevista e percentual executado, e a parcela sai do que foi medido. A retenção de INSS entra na parcela automaticamente, sem alguém ter que lembrar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O sistema resolve o EFD-Reinf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O evento R-2010 é gerado e transmitido pelo próprio sistema, e o CNO da obra fica no cadastro — com aviso quando existe pagamento com INSS sem CNO. O que ainda não existe é uma tela que mostre o status do Reinf por obra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "E a reforma dentro do apartamento do morador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Segue o rito da NBR 16280: o morador solicita pelo aplicativo e anexa projeto e ART. Um agente de IA lê o PDF da ART e extrai engenheiro, registro no CREA ou CAU, número, área e se há intervenção estrutural — mas a leitura é orientativa: quem aprova ou rejeita é o síndico, que pode divergir e justificar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem de fora consegue entrar, e até quando?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Engenheiro, empreiteiro, mestre e fiscal entram por convite de e-mail e enxergam só a obra deles. Quando a obra é concluída, esses acessos se encerram sozinhos — é o passo que todo mundo esquece de dar na mão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O vizinho vê a reforma da minha unidade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ele vê que existe uma obra naquela unidade, sem descrição e sem valor. O morador enxerga as obras do condomínio e as da própria unidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como escolher entre dois empreiteiros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na hora de escolher, o sistema mostra o histórico de cada um nas obras anteriores do mesmo cliente: atraso médio e variação de custo. É o dado que normalmente vive na memória de quem estava lá."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como o pessoal que está na obra entra no sistema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo navegador, inclusive no do celular: não existe programa de campo para instalar, e o diário é preenchido na tela, não por WhatsApp com áudio transcrito. Dizemos isso na frente porque é o tipo de expectativa que só aparece na primeira semana de uso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que o sistema NÃO faz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não faz orçamento de engenharia com composição de custo unitário, não retém percentual contratual como garantia até o aceite final, não tem vistoria recorrente de manutenção preventiva e não usa câmera para medir progresso de obra. Também não temos número de clientes nem de valor gerido para divulgar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto custa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "R$ 79 por mês, por conta, com obras e usuários ilimitados — e a equipe externa convidada não ocupa licença. A primeira obra é grátis, do cadastro ao termo de conclusão."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
