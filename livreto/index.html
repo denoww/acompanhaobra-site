@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Livreto do acompanhaobra — controle de obra</title>
-<meta name="description" content="Livreto do acompanhaobra: obra do condomínio e reforma pela NBR 16280, com contrato, medição, INSS retido e EFD-Reinf. R$ 79/mês, 1ª obra grátis.">
+<title>Livreto do acompanhaobra — controle de obra do contrato ao termo de conclusão</title>
+<meta name="description" content="Livreto do acompanhaobra: controle da obra do condomínio e da reforma de unidade pela NBR 16280. Cotação por link, contrato e aditivo assinados, etapas com prazo, medição com INSS retido e EFD-Reinf, fiscalização e painel. R$ 79 por mês, a primeira obra é grátis.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://www.acompanhaobra.app/livreto/">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -216,6 +216,44 @@ img{display:block;max-width:100%}
   @page{size:A4;margin:14mm}
 }
 </style>
+<script>try{if(navigator.webdriver||/HeadlessChrome/.test(navigator.userAgent))window['ga-disable-G-9L1Q230GWC']=true;}catch(e){}</script>
+<script>
+  // Opt-out de verdade: o botão em /privacidade grava esta chave. Precisa vir
+  // ANTES do gtag.js, senão a primeira medição já saiu.
+  try { if (localStorage.getItem('sem-analytics') === '1') window['ga-disable-G-9L1Q230GWC'] = true; } catch (e) {}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L1Q230GWC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'granted'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-9L1Q230GWC', {
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+  document.addEventListener('click', function (e) {
+    var alvo = e.target;
+    if (!alvo || !alvo.closest) return;
+    var a = alvo.closest('a[href*="wa.me"]');
+    if (!a) return;
+    gtag('event', 'contato_whatsapp', {
+      pagina: location.pathname,
+      cta: a.className || 'sem-classe',
+      // De ONDE veio quem clicou. Medido em 17-18/09/2026: metade das sessoes
+      // deste site vem de chatgpt.com e 5% do Google, mas o lead sai por wa.me e
+      // o clique e o lead nunca se cruzavam. So o HOSTNAME: a URL inteira do
+      // referrer pode carregar termo de busca, que e dado de quem visita.
+      origem: (function () {
+        try { return document.referrer ? new URL(document.referrer).hostname : '(direto)'; }
+        catch (e) { return '(desconhecido)'; }
+      })()
+    });
+  });
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -323,7 +361,7 @@ img{display:block;max-width:100%}
   <div class="btns"><a class="btn" href="/livreto.pdf" download="livreto-acompanhaobra.pdf">
     Baixar o livreto (PDF)</a></div>
 </section>
-<footer class="foot"><div class="foot-in"><span>acompanhaobra · controle de obra de condomínio · <a href="https://www.acompanhaobra.app/privacidade">Privacidade</a></span><span>Livreto v26/08/2026 · f655dc6</span></div></footer>
+<footer class="foot"><div class="foot-in"><span>acompanhaobra · controle de obra de condomínio · <a href="https://www.acompanhaobra.app/privacidade">Privacidade</a></span><span>Livreto v03/11/2026 · f655dc6</span></div></footer>
 <script>
 (function(){
   if(matchMedia("(prefers-reduced-motion: reduce)").matches){
